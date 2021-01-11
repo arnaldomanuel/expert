@@ -1,0 +1,62 @@
+.brand-logo1 {
+    display: inline-block;
+    margin-right: 20px;
+
+    display: inline-block;
+    font-size: 2.1rem;
+    padding: 0;
+}
+
+body{
+    background-color:#F5F5F5;
+}
+
+.profile-link {
+    background-color: #673ab7 ;
+    display: block;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: large;
+    line-height: 50px !important;
+    margin-top: 5px;
+    border-radius: 100%;
+}
+.uppercase{
+    text-transform: uppercase;
+}
+.login-btn{
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+.icon-profile-sidenav{
+    font-size: 64px !important;
+    border-radius: 100%;
+    color: black;
+    background-color: white;
+}
+h1, h2, h3{
+    font-size: x-large;
+    font-weight: 600;
+    margin: 0;
+}
+.fit-content{
+    width: fit-content;
+    width: -moz-fit-content;
+}
+.btn {
+    background-color: #673ab7 !important;
+}
+.color-main-background{
+    background-color: #673ab7 !important;
+}
+
+.sidenav-trigger {
+    display: block !important;
+}
+.card-title{
+    font-weight: 600  !important;
+}
+.false-container {
+    margin-left: 40px;
+    margin-right: 40px;
+}

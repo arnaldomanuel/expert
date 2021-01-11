@@ -1,0 +1,227 @@
+
+.banner{
+  width: 100% !important;
+  height: 600px !important;
+  background-color: white !important;
+  background-image: url('../images/banner1.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  border: 1px white solid;
+}
+.carousel .carousel-item{
+  width: 300px;
+}
+.nav-search-product{
+  width:40%; margin-top: 20px; margin-bottom: 20px; border-radius: 30px; 
+}
+.product-card{
+    padding-top: 30px; padding: 10px; margin-right: 10px;
+}
+.product-link:hover{
+  color: rgb(83, 200, 243) !important;
+}
+.see-all:hover{
+background-color: rgb(83, 200, 243) !important;
+}
+.collapsible-body:hover{background-color: #F0F0F0 !important;}
+.banner-content p{
+    margin-left: 200px;
+}
+.banner-content span{
+    font-size: 80px; color: rgb(83, 200, 243);
+}
+.add-task{
+    font-size: 80px; color: rgb(252, 153, 114) !important;
+}
+.nav-search{
+    
+width:40%; margin-top: 100px; border-radius: 30px;
+}
+.card{
+  border-radius: 13px;
+}
+.container{
+  width: 80%;
+}
+.nav {
+  height: 100px;
+
+  background-color: white !important;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.category{
+  background-color: rgb(68, 37, 111);
+}
+.painted{
+  color: rgb(252, 153, 114) !important;
+}
+#links nav ul{
+  width: fit-content;
+  margin: 0 auto
+}
+#links nav ul li.active{
+  background: none;
+}
+#links nav {
+  background-color:  rgb(83, 200, 243);
+  margin: 0 auto;
+  width: auto !important;
+}
+li.disabled .page-link {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+p{
+  margin-block-start: 0.3em;
+  margin-block-end: 0.5em;
+}
+.logo {
+  width: 100px;
+  display: inline-block;
+}
+
+body {
+  background-color: #F5F5F5;
+}
+
+.main-nav {
+  margin: 0 auto;
+  
+  width: 80%;
+}
+
+.main-nav-link {
+  font-weight: 600;
+  
+}
+.page-footer{
+background-color: rgb(252, 153, 114) !important;
+}
+.search-box-all{
+  background-color: rgb(252, 153, 114) !important;
+}
+.main-nav-link:hover{
+  background-color: rgb(83, 200, 243);
+}
+.icon-link{
+  color: rgb(83, 200, 243);
+  line-height: 64px;;
+}
+.btn {
+
+  background-color: rgb(252, 153, 114) !important;
+  color: white !important;
+}
+p span{
+  font-weight: 700;
+}
+.carousel .carousel-item{
+  width: 300px ;
+
+}
+
+.footer-links a{
+  padding-right: 30px;;
+}
+.top-banner{
+    background-color: rgb(68, 37, 111) !important;  padding: 5px;
+}
+.top-banner p{
+    font-weight: 700;  margin: 15px 0;
+}
+
+/*Reesponsiveness*/
+@media only screen and (min-width: 721px) and (max-width: 1199px) {
+    .nav-search-top{
+        display: none !important;
+    }
+    
+    .banner-content{
+        margin-left: 10px;
+      }
+      .banner-content h1{
+          font-weight: 800; margin-left: 40px; margin-top: 80px; color:rgb(252, 153, 114);
+          font-size: 2.8rem;
+      }
+      .banner-content p{
+        margin-left: 40px;
+    }
+   
+      .banner-content span{
+        font-size: 2.8rem;
+    }
+      .mobile-bitch{
+          display: none;
+      }
+    }
+  @media only screen and (min-width: 1200px) {
+    .nav-search-top{
+        display: none !important;
+    }
+    .banner-content{
+        margin-left: 10px;
+      }
+      .banner-content h1{
+          font-weight: 800; margin-left: 150px; margin-top: 80px; color:rgb(252, 153, 114);
+          font-size: 3.7rem;
+      }
+      .mobile-bitch{
+          display: none;
+      }
+      .main-card{
+        padding-bottom: 30px;
+      }
+  }
+ 
+  @media only screen and (max-width: 720px) {
+    h1{
+      font-size: large;
+      font-weight: 700;
+    }
+      .container{
+          width: 95%;
+      }
+    .banner-content h1{
+        font-weight: 700; margin-top:90px; color:rgb(252, 153, 114);
+        font-size: 1.5rem;
+        margin-left: 10px;
+    }
+    .mobile-bitch{
+        display: block !important;
+    }
+    .banner-content span{
+        font-size: 1.5rem;
+    }
+    .banner-content p{
+        margin-left: 10px;
+    }
+   
+    .shopping-cart{
+        font-size: 1.5rem;  margin-left:0px;
+        color: rgb(83, 200, 243);
+    }
+    
+    .add-task{
+        font-size:1.5rem; margin-left:0px; color: rgb(252, 153, 114) !important;
+    }
+    .nav{
+        padding-top: 5px;
+        padding-bottom: 0px;
+        height: 80px;
+    }
+    .nav-search{
+    
+        width:100%; margin-top: 10px; border-radius: 30px; margin-bottom: 10px;
+        }
+    .banner{
+    height: 200px !important;
+    background-repeat: no-repeat;
+    background-size: contain;
+    }
+    .product-card{
+        padding-top: 30px; padding: 10px; margin-right: 0px !important;
+    }
+    
+  }
