@@ -11,7 +11,7 @@
 </div>
 <div class="row">
     @foreach($courses as $course)
-    <div class="col s12 m6 l3 xl3">
+    <div class="col s12 m6 l3 xl3 ">
         <x-card-image :link="url('/cursos/'.$course->slug)" 
         :imagePath="url($course->thumbnail)"
         :title="''"
@@ -19,4 +19,10 @@
     </div>
     @endforeach
 </div>
+
+<style>
+    .height-300{
+        height: 270px !important;
+    }
+</style>
 @endsection

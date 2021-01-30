@@ -53,6 +53,10 @@
                     <input type="text" maxlength="255" value="{{old('name')}}" required class="form-control" name="name" id="name" aria-describedby="emailHelp">
                 </div>
                 <div class="form-group">
+                    <label for="order">Número de ordem do módulo</label>
+                    <input type="text" maxlength="255" value="{{old('order')}}" required class="form-control" name="order" id="order" aria-describedby="emailHelp">
+                </div>
+                <div class="form-group">
                     <label for="course_id">Curso do módulo</label>
                     <select class="form-control" name="course_id" id="course_id">
                         @foreach($courses as $course)
@@ -68,7 +72,9 @@
                 </div>
                 <div class="form-group">
                     <label for="descripion">Descrição da categoria</label>
-                    <textarea class="form-control" id="body" placeholder="Enter the Description" name="description"></textarea>    
+                    <textarea class="form-control" id="body" placeholder="Enter the Description" name="description">
+                        {{old('description')}}    
+                    </textarea>    
                 </div>
                 <button type="submit" class="btn btn-primary">Criar Módulo</button>
             </form>

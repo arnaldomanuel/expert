@@ -62,6 +62,10 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    <label for="order">Número de ordem do módulo</label>
+                    <input type="text" maxlength="255" value="{{$lesson->order}}" required class="form-control" name="order" id="order" aria-describedby="emailHelp">
+                </div>
+                <div class="form-group">
                     <label for="pdf">Documento PDF (Somente se quiser alterar o PDF) </label>
                     <input type="file" name="pdf" id="pdf" accept=".pdf">
                 </div>

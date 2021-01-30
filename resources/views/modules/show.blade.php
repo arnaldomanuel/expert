@@ -36,6 +36,7 @@
         
         <div class="col-sm1-2">
             <h4>{{$module->name}}</h4>
+            <p>Módulo número {{$module->order}} </p>
             <div style="padding-top: 10px;">
                 <img style="width: 300px;" src="{{url($module->photo_path)}}" alt="">
             </div>
@@ -55,11 +56,12 @@
    
   
     <h5>Lista de Aulas neste módulo</h5>
-        <table class="table table-hover table-responsive">
+        <table class="table table-hover ">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nome</th>
+                    <th scope="col">Ordem</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
                 </tr>
@@ -70,6 +72,7 @@
                 <tr>
                     <th scope="row">{{$lesson->id}}</th>
                     <td> <a href="/admin/lesson/{{$lesson->id}}">{{$lesson->name}}</a></td>
+                    <td>{{$lesson->order}}</td>
                     <x-modal-bootsrap :modalID="'lesson'.$lesson->id" :modalTitle="'Quer mesmo apagar '. $lesson->name. '?'" :denyText="'Não'" :confirmText="'Sim'" :formId="'formDelete'.$lesson->id" />
                     <td><a href="/admin/lesson/{{$lesson->id}}/edit"><i class="fas fa-edit"></i></a></td>
                     <td>
@@ -90,11 +93,13 @@
 
 
 <div class="row card" style="margin-top: 40px; padding-top: 15px;" >
-      <span class="btn btn-primary" style="position: absolute; top: 0; right: 0px; 
-    color: white !important;"><a style="color: white !important;"
-     href="/admin/quizz/create?module_id={{$module->id}}">Adicionar Pergunta do Quizz</a></span>
+    
   
     <h5>Perguntas do Quizz</h5>
+    <div style="margin-top: 10px; margin-bottom: 10px;" class="col-sm-12">
+        <a class="btn btn-primary"
+            href="/admin/quizz/create?module_id={{$module->id}}">Adicionar Pergunta do Quizz</a>
+    </div>
         <table class="table table-hover table-responsive">
             <thead class="thead-dark">
                 <tr>

@@ -17,6 +17,7 @@ public  $messages = [
         'pdf.mimetypes' => 'O documento deve ter a extensão pdf',
         'thumbnail.max' => 'A imagem não pode ter mais de 350 Kilobytes',
         'thumbnail.image' => 'A imagem deve ter a extensão jpeg, jpg, png',
+        'gte' => 'O campo :attribute deve ser maior ou igual a :value',
     ];
  public    $rules = [
     'pdf' => 'nullable|file|mimetypes:application/pdf|max:4000',
@@ -24,10 +25,12 @@ public  $messages = [
     'video_link' => 'required|url|max:255',
     'module_id' => 'required',
     'description' => 'required',
+    'order' => 'required|gte:0'
 ];
    public $attributes = [
         'name' => 'nome',
         'description' => 'descrição',
+    'order' => 'Número de ordem'
     ];
 
     public function updateLesson(Request $request, $id){
@@ -49,6 +52,7 @@ public  $messages = [
         $lesson->name = $request->name;
         $lesson->module_id = $request->module_id;
         $lesson->video_link = $request->video_link;
+        $lesson->order = $request->order;
         $lesson->description = $request->description;
         $lesson->save();
         $request->session()->flash('activity', 'Aula:  ' . $lesson->name . ' actualizada');

@@ -53,6 +53,10 @@
                     <input type="text" maxlength="255" value="{{old('name')}}" required class="form-control" name="name" id="name" aria-describedby="emailHelp">
                 </div>
                 <div class="form-group">
+                    <label for="order">Número de ordem do módulo</label>
+                    <input type="text" maxlength="255" value="{{old('order')}}" required class="form-control" name="order" id="order" aria-describedby="emailHelp">
+                </div>
+                <div class="form-group">
                     <label for="module">Escolha o módulo</label>
                     <select class="form-control" name="module_id" id="module">
                         @foreach($modules as $module)

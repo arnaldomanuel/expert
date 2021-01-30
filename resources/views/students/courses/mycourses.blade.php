@@ -1,7 +1,7 @@
 @extends('layouts.public')
 
 @section('main')
-<?php $courseUnProcessed = true; $courseAproved = true; ?>
+<?php  $courseUnProcessed = true; $courseAproved = true; ?>
 
 <div class="row">
     <div class="col s12 m12 l12 xl12">
@@ -15,7 +15,7 @@
     @foreach($courses as $course)
         @if ($course->authorize==1)
         <?php $courseAproved = false; ?>
-            <div class="col s12 m6 l3 xl3">
+            <div class="col s12 m6 l3 xl3 height-400">
                 <x-card-image :link="url('/cursos/'.$course->slug)" 
                 :imagePath="url($course->thumbnail)"
                 :title="''"
@@ -56,4 +56,10 @@
 @endif
 
 </div>
+
+<style>
+    .height-400{
+        height: 400px !important;
+    }
+</style>
 @endsection

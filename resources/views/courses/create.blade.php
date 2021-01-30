@@ -69,6 +69,15 @@
                         {{old('description')}}
                     </textarea>    
                 </div>
+                <p>Aulas sob demanda</p>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="ondemand" id="ondemand1" value="1">
+                    <label class="form-check-label" for="ondemand1">Sim</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="ondemand" id="ondemand2" checked value="0">
+                    <label class="form-check-label" for="ondemand2">Não</label>
+                  </div> <p></p>
                 <button type="submit" class="btn btn-primary">Criar Curso</button>
             </form>
         </div>

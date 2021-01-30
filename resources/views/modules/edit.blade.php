@@ -53,6 +53,10 @@
                     <label for="name">Nome do Módulo</label>
                     <input type="text" maxlength="255" value="{{$module->name}}" required class="form-control" name="name" id="name" aria-describedby="emailHelp">
                 </div>
+                <div class="form-group">
+                    <label for="order">Número de ordem do módulo</label>
+                    <input type="text" maxlength="255" value="{{$module->order}}" required class="form-control" name="order" id="order" aria-describedby="emailHelp">
+                </div>
               
                 <p>Thumbnail do módulo (Apenas se quiser alterar)</p>
                 <div class="custom-file">

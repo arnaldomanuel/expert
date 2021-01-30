@@ -63,6 +63,7 @@ class LessonController extends Controller
             'file' => 'Falhou o upload do PDF',
             'pdf.max' => 'O PDF não pode ter mais de 4MB',
             'pdf.mimetypes' => 'O documento deve ter a extensão pdf',
+            'gte' => 'O campo :attribute deve ser maior ou igual a :value',
         ];
         $rules = [
             'pdf' => 'required|file|mimetypes:application/pdf|max:4000',
@@ -70,12 +71,14 @@ class LessonController extends Controller
             'video_link' => 'required|url|max:255',
             'module_id' => 'required',
             'description' => 'required',
+            'order' => 'required|gte:0',
         ];
         $attributes = [
             'name' => 'nome',
             'description' => 'descrição',
             'video_link' => 'Link do vídeo',
             'pdf' => 'documento',
+            'order' => 'Número de Ordem'
         ];
 
 
@@ -104,6 +107,7 @@ class LessonController extends Controller
             $lesson->pdf_link = 'storage/pdf/' . $filename;
         }
         $lesson->name = $request->name;
+        $lesson->order = $request->order;
         $lesson->module_id = $request->module_id;
         $lesson->video_link = Str::replaceFirst('https://www.youtube.com/watch?v=', 'http://www.youtube.com/embed/', $request->video_link);
         $lesson->description = $request->description;

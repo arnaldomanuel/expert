@@ -3,6 +3,7 @@
 
 @section('main')
     <h2>{{$lesson->name}}</h2>
+    <p>Aula número {{$lesson->order}} </p>
 
 
     <iframe id="player" type="text/html" style="width: 100%;" height="500px"

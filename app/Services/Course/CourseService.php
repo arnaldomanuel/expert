@@ -45,6 +45,7 @@ class CourseService {
         $course->name = $request->name;
          $course->price = $request->price;
         $course->description = $request->description;
+        $course->ondemand = $request->ondemand;
         $course->slug = Str::slug($request->name);
         $course->user_id = auth()->user()->id;
 

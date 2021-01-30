@@ -57,16 +57,19 @@ class ModuleController extends Controller
             'file' => 'Falhou o upload da imagem',
             'photo_path.max' => 'A imagem não pode ter mais de 350 Kilobytes',
             'photo_path.image' => 'A imagem deve ter a extensão jpeg, jpg, png',
+            'gte' => 'O campo :attribute deve ser maior ou igual que :value',
         ];
         $rules = [
             'photo_path' => 'required|file|image|max:700',
             'name' => 'required|unique:modules|max:255',
             'description' => 'required',
+            'order' => 'required|gte:0'
         ];
         $attributes = [
             'name' => 'nome',
             'description' => 'descrição',
             'photo_path' => 'imagem',
+            'order' => 'Número de ordem'
         ];
 
         $validator = Validator::make($request->all(), $rules, $messages, $attributes);
@@ -87,6 +90,7 @@ class ModuleController extends Controller
         }
         $module->course_id = $request->course_id;
         $module->name = $request->name;
+        $module->order = $request->order;
         $module->description = $request->description;
         $module->save();
         $request->session()->flash('activity', 'Módulo:  ' . $module->name . ' criado');
@@ -147,16 +151,19 @@ class ModuleController extends Controller
             'file' => 'Falhou o upload da thumbnail',
             'photo_path.max' => 'O thumbnail não pode ter mais de 350 Kilobytes',
             'photo_path.image' => 'O thumbnail deve ter a extensão jpeg, jpg, png',
+            'gte' => 'O campo :attribute deve ser maior ou igual que :value',
         ];
         $rules = [
             'photo_path' => 'nullable|file|image|max:700',
             'name' => 'required|max:255',
             'description' => 'required',
+            'order' => 'required|gte:0',
         ];
         $attributes = [
             'name' => 'nome',
             'description' => 'descrição',
             'photo_path' => 'thumbnail',
+            'order' => 'Número de ordem'
         ];
 
         $validator = Validator::make($request->all(), $rules, $messages, $attributes);
@@ -184,6 +191,7 @@ class ModuleController extends Controller
         }
       
         $module->name = $request->name;
+        $module->order = $request->order;
         $module->description = $request->description;
         $module->save();
         $request->session()->flash('activity', 'Módulo:  ' . $module->name . ' actualizado');
