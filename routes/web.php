@@ -75,3 +75,6 @@ Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallb
 
 Route::get('/facebook/redirect', [SocialAuthFacebookController::class, 'redirect']);
 Route::get('/facebook/callback', [SocialAuthFacebookController::class, 'callback']);
+
+
+Route::redirect('/admin', '/admin/course');
