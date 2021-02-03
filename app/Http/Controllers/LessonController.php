@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Lesson;
 use App\Models\Module;
 use App\Services\Lesson\LessonService;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
@@ -111,7 +112,17 @@ class LessonController extends Controller
         $lesson->module_id = $request->module_id;
         $lesson->video_link = Str::replaceFirst('https://www.youtube.com/watch?v=', 'http://www.youtube.com/embed/', $request->video_link);
         $lesson->description = $request->description;
-        $lesson->save();
+        
+        try {
+            $lesson->save();
+        } catch (\Illuminate\Database\QueryException $ex) {
+            if (Str::contains($ex->getMessage(), 'lessons_module_id_order_unique')) {
+                $validator->errors()->add('error.order_id', 'Já existe uma aula neste módulo com esse Número de Ordem');
+                return redirect()->back()
+                    ->withErrors($validator)
+                    ->withInput();
+            }
+        }
         $request->session()->flash('activity', 'Aula:  ' . $lesson->name . ' criada');
         return redirect('/admin/module/' . $lesson->module_id);
     }
