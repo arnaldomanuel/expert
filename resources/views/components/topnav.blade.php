@@ -3,7 +3,7 @@
     <a href="#" data-target="slide-out" class="sidenav-trigger brand-logo1 black-text" href="#"><span class="material-icons">
         menu
       </span></a>
-    <a href="/" class="black-text brand-logo">Logo</a>
+    <a href="/" class="black-text brand-logo"><img width="100px" style="margin-top: 7px;" src="/img/logo.jpeg" alt=""></a>
 
     <ul id="nav-mobile" class="right ">
       @auth

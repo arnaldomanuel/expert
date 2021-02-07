@@ -48,17 +48,25 @@
             <h3>Criar Curso</h3>
             <form action="{{url('/admin/course')}}" enctype="multipart/form-data" method="POST">
                 @csrf
-                <div class="form-group">
-                    <label for="name">Nome do Curso</label>
-                    <input required type="text" maxlength="255" value="{{old('name')}}"  class="form-control" name="name" id="name" >
-                </div>
+
+                <div class="row">
+                    <div class="col-sm-12 col-lg-8 col-xlg-8">
+                        <div class="form-group">
+                            <label for="name">Nome do Curso</label>
+                            <input required type="text" maxlength="255" value="{{old('name')}}"  class="form-control" name="name" id="name" >
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-lg-4 col-xlg-4">
+                         
                 <div class="form-group">
                     <label for="price">Preço do Curso</label>
                     <input required type="number" step=".01" value="{{old('price')}}"  class="form-control" name="price" id="price"  >
                 </div>
+                    </div>
+                </div>
+               
                 <p>Thumbnail do curso</p>
                 <div class="custom-file">
-                    
                     <input type="file" required class="custom-file-input" accept="image/x-png,image/gif,image/jpeg" name="thumbnail" id="thumbnail">
                     <label class="custom-file-label" for="thumbnail">Choose file</label>
                 </div>
@@ -69,6 +77,14 @@
                         {{old('description')}}
                     </textarea>    
                 </div>
+               <div id="objectives">
+                <div class="form-group">
+                    <label for="objective1">Objectivo</label>
+                    <input type="text" class="form-control" name="objective1" id="objective1">
+                </div>
+               </div>
+                <span class="btn btn-primary" id="addObjective">Adicionar objectivo</span>
+               <p></p>
                 <p>Aulas sob demanda</p>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="ondemand" id="ondemand1" value="1">
@@ -91,5 +107,6 @@ ClassicEditor
 console.error( error );
 } );
 </script>
+<script src="/js/additem.js"></script>
 
 @endsection

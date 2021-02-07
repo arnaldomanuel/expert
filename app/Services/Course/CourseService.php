@@ -3,6 +3,7 @@
 namespace App\Services\Course;
 
 use App\Models\Course;
+use App\Models\Objective;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -70,6 +71,15 @@ class CourseService {
             return redirect()->back()
                 ->withErrors($validator)
                 ->withInput();
+        }
+        $a =1;
+        while ($request->input('objective'.$a)) {
+            # code...
+            $objective = new Objective();
+            $objective->description = $request->input('objective'.$a);
+            $objective->course_id = $course->id;
+            $objective->save();
+            $a++;
         }
 
         return "OK";

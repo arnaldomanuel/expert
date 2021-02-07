@@ -18,6 +18,10 @@
         <span   style="position: absolute; top: 50px; right: 0px; 
         color: white !important;"><button data-target="#{{'course'.$course->id}}" data-toggle="modal" class="btn btn-primary" style="color: white !important;" 
         >Apagar {{$course->name}}</button></span>
+
+        <span class="btn btn-primary" style="position: absolute; top: 100px; right: 0px; 
+        color: white !important;"><a style="color: white !important;" href="/admin/course/{{$course->id}}/members">Ver membros</a></span>
+        
         
         <div class="col-sm1-2">
             <h4>{{$course->name}}</h4>
@@ -31,9 +35,37 @@
         </div>
     </div>
 </div>
+<h5>Objectivos do módulo</h5>
+<table class="table table-hover ">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Descrição</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach ($objectives as $objective)
+        <tr>
+            <td> {{$objective->description}}</td>
+            <td> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#objective{{$objective->id}}">
+                    Editar Objectivo
+              </button> 
+
+              
+                  <form style="display: inline-block;" action="/admin/delete/objective" method="post">@csrf
+                    <input type="hidden" name="objective_id" value="{{$objective->id}}">
+                    <button type="submit" class="btn btn-danger">Apagar</button>
+            </form>
+            </td>
+        </tr>
+    @endforeach
+
+
+    </tbody>
+</table>
 
 <h5 style="margin-top: 10px;">Módulos de {{$course->name}}</h5>
-<table class="table table-hover table-responsive">
+<table class="table table-hover ">
     <thead class="thead-dark">
         <tr>
             <th scope="col">#</th>
@@ -82,4 +114,33 @@
     @method('delete')
     @csrf
 </form>
+
+@foreach ($objectives as $objective)
+<div class="modal fade" id="objective{{$objective->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Alterar objectivo</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/admin/update/objective" method="post">
+            @csrf
+              <input type="hidden" value="{{$objective->id}}" name="objective_id">
+            <div class="form-group">
+                <input type="text" name="objective" class="form-control" value="{{$objective->description}}">
+            </div>
+            <button class="btn btn-primary" type="submit">Salvar</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+</div>
+@endforeach
+
 @endsection

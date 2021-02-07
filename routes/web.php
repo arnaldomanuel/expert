@@ -25,9 +25,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'landing');
+
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
@@ -59,11 +59,12 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/admin/access-tokens', [CourseGrantController::class, 'getAccess']);
 Route::post('/admin/approve-token', [CourseGrantController::class, 'approveToken']);
 Route::post('/admin/reprove-token', [CourseGrantController::class, 'reproveTokken']);
-
+Route::post('/admin/update/objective', [CourseController::class, 'updateObjective']);
+Route::post('/admin/delete/objective', [CourseController::class, 'deleteObjective']);
 Route::get('/admin/coursegrant/search', [CourseGrantController::class, 'search']);
 Route::get('/admin/list-aproved-tokens', [CourseGrantController::class, 'listApprovedTokens']);
 Route::get('/admin/list-reproved-tokens', [CourseGrantController::class, 'listReprovedTokens']);
-
+Route::get('/admin/course/{id}/members', [CourseController::class, 'members']);
 Route::resource('/admin/module', ModuleController::class);
 Route::resource('/admin/lesson', LessonController::class);
 Route::resource('/admin/course', CourseController::class);

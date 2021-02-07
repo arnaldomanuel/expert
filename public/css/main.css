@@ -34,10 +34,18 @@ body{
     color: black;
     background-color: white;
 }
-h1, h2, h3{
+h1{
     font-size: x-large;
     font-weight: 600;
     margin: 0;
+}
+h2{
+    font-size: larger;
+    font-weight: 500;
+}
+h3{
+font-size: large;
+font-weight: 500;
 }
 .fit-content{
     width: fit-content;

@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\CourseGrant;
+use App\Models\Objective;
 use App\Services\Course\CourseService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use PhpParser\Node\Expr\Cast\Object_;
 
 class CourseController extends Controller
 {
@@ -63,6 +66,7 @@ class CourseController extends Controller
         $course = Course::findOrFail($id);
         $data = array(
             'course' => $course,
+            'objectives' => Objective::where('course_id', $id)->get(),
         );
         if (auth()->user()->cannot('view', $course)) {
             abort(403);
@@ -128,5 +132,39 @@ class CourseController extends Controller
         session()->flash('activity', 'Curso: ' . $course->name . ' apagado com sucesso');
         
         return redirect('/admin/course');
+    }
+
+    public function members($id){
+        
+        $course = Course::findOrFail($id);
+        if (auth()->user()->cannot('update', $course)) {
+            abort(403);
+        }
+        
+        $data = array(
+            'courseGrants' => CourseGrant::join('courses', 'course_grants.course_id', '=', 'courses.id')
+                                ->join('users', 'users.id', '=', 'course_grants.user_id')
+                                ->select('courses.name as curso', 'course_grants.*', 'users.name as nome')
+                                ->where([
+                                    ['courses.user_id', auth()->user()->id],
+                                    ['course_grants.authorize', 1],
+                                    ['courses.id', $id],
+                                ])->paginate(40),
+        );
+       
+        return view('course-grant.members')->with($data);
+    }
+    public function updateObjective(Request $request){
+        $objective = Objective::find($request->objective_id);
+        $objective->description = $request->objective;
+        $objective->save();
+        session()->flash('activity', 'Objectivo ' . ' actualizado com sucesso');
+        return redirect()->back();
+    }
+    public function deleteObjective(Request $request){
+        Objective::destroy($request->objective_id);
+        session()->flash('activity', 'Objectivo ' .  ' apagado com sucesso');
+        return redirect()->back();
+
     }
 }

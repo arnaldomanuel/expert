@@ -63,6 +63,26 @@
                         <input required type="text" maxlength="255" value="{{$user->whatsapp_number}}"  
                         class="form-control" name="whatsapp_number" id="name" >
                     </div>
+                    <div class="form-group">
+                        <label for="name">Biografia</label>
+                        <textarea class="form-control" name="biography" id="" cols="20" rows="10">{{$user->biography}}</textarea>
+                       
+                    </div>
+                    <br>
+                    <p>Foto do Perfil</p>
+                    @if (auth()->user()->profilepic)
+                        <img src="{{url(auth()->user()->profilepic)}}" width="200px" style="margin-bottom: 15px;" class="rounded" alt="Cinque Terre">
+                    @endif
+                   
+
+                    <div class="form-group">
+                        <div class="custom-file">
+                            <input type="file"  class="custom-file-input" accept="image/x-png,image/gif,image/jpeg" name="profilepic" id="thumbnail">
+                            <label class="custom-file-label" for="thumbnail">Escolha a foto de Perfil</label>
+                        </div>
+                    </div>
+                  
+                    <br>
                     <button type="submit" class="btn btn-primary">Actualizar Dados</button>
                 </form>
             </div>

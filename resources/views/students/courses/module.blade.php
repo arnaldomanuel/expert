@@ -18,7 +18,9 @@
             <div class="card-panel grey lighten-5 z-depth-1">
                 <div class="row valign-wrapper">
                     <div class="col s6">
-                        <img src="https://materializecss.com/images/yuna.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+                       
+                            <img src="{{$module->course->user->profilepic ? $module->course->user->profilepic : url('img/avatar.jpg') }}" alt="" class="circle  responsive-img"> <!-- notice the "circle" class -->
+                        
                     </div>
                     <div class="col s10">
                         <span class="black-text">
@@ -59,9 +61,9 @@
                 <ul class="collapsible">
                     @foreach($module->lessons as $lesson)
                     <li>
-                        <div class="collapsible-header"><i class="material-icons">filter_drama</i>{{$lesson->name}}</div>
-                        <div class="collapsible-body"><span>{!! $lesson->description !!}</span>
-                            <p><a class="btn" href="/aulas/{{$lesson->id}}">Assistir aula</a></p>
+                        <div class="collapsible-header"><i class="material-icons">play_lesson</i>{{$lesson->name}}</div>
+                        <div class="collapsible-body" class="center">
+                            <p class="center"><a class="btn" href="/aulas/{{$lesson->id}}">Assistir aula</a></p>
                         </div>
                     </li>
                     @endforeach
