@@ -14,7 +14,8 @@ class StudentLessonsController extends Controller
         $lesson = Lesson::findOrFail($id);
 
         if (!Gate::allows('has-subscription', $lesson)) {
-            abort(403);
+          
+            abort(403, 'Não tem subscrição a este curso.');
         }
 
         if ($lesson->module->course->ondemand == 1) {
@@ -34,13 +35,13 @@ class StudentLessonsController extends Controller
                 }
             }
             if (!$found) {
-                abort(403);
+                abort(403, 'Termine as aulas anteriores');
             }
         }
         $suggestions = Lesson::where([
             ['module_id', $lesson->module->id],
             ['id', '<>', $lesson->id]
-        ])->orderBy('created_at', 'desc')->get();
+        ])->orderBy('order', 'asc')->get();
         $data = array(
             'lesson' => $lesson,
             'suggestions' => $suggestions,

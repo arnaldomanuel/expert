@@ -38,6 +38,7 @@ class SocialAuthFacebookController extends Controller
     if($finduser){
         Auth::login($finduser);
         Auth::logoutOtherDevices(auth()->user()->course_online);
+        Auth::login($finduser);
         return redirect('/dashboard');
 
     }else{

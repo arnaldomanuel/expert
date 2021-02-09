@@ -5,7 +5,7 @@
 <div style="margin-top: 20px;" class="row">
     <div class="col s12 white" style="margin-bottom: 10px; padding-bottom: 10px;;">
         <div>
-            <h1 style="font-size: 26px; margin: 1rem 0 1rem 0;">{{$lesson->name}}</h1>
+            <h1 style="font-size: 26px; margin: 1rem 0 1rem 0;">{{$lesson->name}} - {{$lesson->module->course->name}}</h1>
 
             <span class="left"> <i><small>Criado por {{$lesson->module->course->user->name}}, 26 de Novembro de 2020</small></i> </span>
         </div>
@@ -31,7 +31,14 @@
             </div>
             @if (isset($lesson->video_link))
             <div id="test1" class="col s12">
-                <iframe id="player" type="text/html" style="width: 100%;" height="500px" src="{!!$lesson->video_link.'?enablejsapi=1&origin=http://example.com'!!}" frameborder="0"></iframe>
+                <iframe id="player" 
+                allowfullscreen="allowfullscreen"
+                mozallowfullscreen="mozallowfullscreen" 
+                msallowfullscreen="msallowfullscreen" 
+                oallowfullscreen="oallowfullscreen" 
+                webkitallowfullscreen="webkitallowfullscreen"
+                
+                type="text/html" style="width: 100%;" height="500px" src="{!!$lesson->video_link.'?enablejsapi=1&origin=http://example.com'!!}" frameborder="0"></iframe>
             </div>
             @endif
             @if (isset($lesson->pdf_link))
@@ -64,6 +71,13 @@
             @endforeach
 
         </div>
+    </div>
+    <div class="row">
+        <iframe id="player"
+       
+        
+        type="text/html" style="width: 100%;" height="500px" src="{!!$lesson->video_link.'?enablejsapi=1&origin=http://example.com'!!}" frameborder="0"></iframe>
+          
     </div>
 
 

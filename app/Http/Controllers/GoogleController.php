@@ -31,6 +31,7 @@ class GoogleController extends Controller
             if($finduser){
                 Auth::login($finduser);
                 Auth::logoutOtherDevices(auth()->user()->course_online);
+                Auth::login($finduser);
                 return redirect('/cursos');
             }else{
                 $course_online = Str::random(10);
@@ -39,6 +40,7 @@ class GoogleController extends Controller
                     'email' => $user->email,
                     'google_id'=> $user->id,
                     'password' => $course_online,
+                    'email_verified_at' => now(),
                 ]);
 
                 $newUser->course_online = $course_online; 

@@ -21,6 +21,16 @@
                        <p class="center fit-content">Google <i class=" left"><img width="30px" src="/img/g.svg" alt="" ></i></p>
                    </div>
                </a>
+               <a href="/register">
+                    <div class="provider-auth orange accent-2 white-text">
+                        <p class="center fit-content">Criar conta <i class="material-icons left">email</i></p>
+                    </div>
+                </a>
+                <a href="/login">
+                    <div class="provider-auth orange accent-2 white-text">
+                        <p class="center fit-content">Login <i class="material-icons left">email</i></p>
+                    </div>
+                </a>
          </div>
         </div>
        
