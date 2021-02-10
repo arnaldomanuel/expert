@@ -44,7 +44,7 @@
       <div class="logo mr-auto">
        
         <!-- Uncomment below if you prefer to use an image logo -->
-       <a href="index.html"><img src="/logo.jpeg" alt="" class="img-fluid"></a>
+       <a href="index.html"><img src="/img/logo.png" alt="" class="img-fluid"></a>
       </div>
 
       <nav class="nav-menu d-none d-lg-block">
@@ -157,22 +157,22 @@
             <div class="tab-content">
               <div class="tab-pane active show" id="tab-1">
                 <figure>
-                  <img src="//assets/img/features-1.png" alt="" class="img-fluid">
+                  <img src="/assets/img/features-1.png" alt="" class="img-fluid">
                 </figure>
               </div>
               <div class="tab-pane" id="tab-2">
                 <figure>
-                  <img src="//assets/img/features-2.png" alt="" class="img-fluid">
+                  <img src="/assets/img/features-2.png" alt="" class="img-fluid">
                 </figure>
               </div>
               <div class="tab-pane" id="tab-3">
                 <figure>
-                  <img src="//assets/img/features-3.png" alt="" class="img-fluid">
+                  <img src="/assets/img/features-3.png" alt="" class="img-fluid">
                 </figure>
               </div>
               <div class="tab-pane" id="tab-4">
                 <figure>
-                  <img src="//assets/img/features-4.png" alt="" class="img-fluid">
+                  <img src="/assets/img/features-4.png" alt="" class="img-fluid">
                 </figure>
               </div>
             </div>
