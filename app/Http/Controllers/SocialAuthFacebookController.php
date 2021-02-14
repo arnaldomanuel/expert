@@ -48,6 +48,7 @@ class SocialAuthFacebookController extends Controller
             'email' => $user->getEmail(),
             'facebook_id'=> $user->id,
             'password' => $course_online,
+            'email_verified_at' => now(),
         ]);
         $newUser->course_online = $course_online; 
         $newUser->save(); 
