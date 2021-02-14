@@ -11,6 +11,25 @@
         
     @show
 
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <style>
+        @media only screen and (max-width: 640px) {
+      .false-container {
+        width: 95%;
+        margin-left: 10px !important;
+        margin-right: 0px !important;
+      }
+      body{
+        max-width: 100%;
+      }
+    }
+    html, body {
+    max-width: 100% !important;
+    width: 100%;
+   
+}
+      </style>
+
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 

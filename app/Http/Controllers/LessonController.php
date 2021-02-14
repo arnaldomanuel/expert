@@ -110,7 +110,7 @@ class LessonController extends Controller
         $lesson->name = $request->name;
         $lesson->order = $request->order;
         $lesson->module_id = $request->module_id;
-        $lesson->video_link = Str::replaceFirst('https://www.youtube.com/watch?v=', 'http://www.youtube.com/embed/', $request->video_link);
+        $lesson->video_link = Str::replaceFirst('https://www.youtube.com/watch?v=', 'https://www.youtube.com/embed/', $request->video_link);
         $lesson->description = $request->description;
         
         try {
