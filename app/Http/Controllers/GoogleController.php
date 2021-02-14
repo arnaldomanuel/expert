@@ -35,6 +35,7 @@ class GoogleController extends Controller
                 return redirect('/cursos');
             }else{
                 $course_online = Str::random(10);
+                
                 $newUser = User::create([
                     'name' => $user->name,
                     'email' => $user->email,
@@ -42,7 +43,7 @@ class GoogleController extends Controller
                     'password' => $course_online,
                     'email_verified_at' => now(),
                 ]);
-
+                dd($newUser);
                 $newUser->course_online = $course_online; 
                 $newUser->save();
 
