@@ -48,7 +48,6 @@ class GoogleController extends Controller
                 $newUser->save();
 
                 Auth::login($newUser);
-                dd($newUser);
                 return redirect('/cursos');
             }
     }
