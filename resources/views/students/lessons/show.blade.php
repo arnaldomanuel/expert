@@ -64,7 +64,7 @@
             @foreach($suggestions as $lesson)
             <div class="row">
                 <div class="col s6">
-                    <img style="width: 200px; " src="/img/fabric.jpg" alt="">
+                    <img style="width: 200px; " src="{{url($lesson->module->photo_path)}}" alt="">
                 </div>
                 <div class="col s6">
                     <h6>{{$lesson->name}}</h6>
