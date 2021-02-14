@@ -43,8 +43,10 @@
             @endif
             @if (isset($lesson->pdf_link))
             <div id="test2" class="col s12">
-                <embed src="{{url($lesson->pdf_link)}}" style="width: 100%;" height="500" type="application/pdf">
-            </div>
+                <iframe src="http://docs.google.com/gview?url={{url($lesson->pdf_link)}}&embedded=true" style="width:100%; height:1000px;" frameborder="0"></iframe>
+
+                <!--<embed src="{{url($lesson->pdf_link)}}" style="width: 100%;" height="500" type="application/pdf">
+                --> </div>
             @endif
             
             
@@ -72,14 +74,6 @@
 
         </div>
     </div>
-    <div class="row">
-        <iframe id="player"
-       
-        
-        type="text/html" style="width: 100%;" height="500px" src="{!!$lesson->video_link.'?enablejsapi=1&origin=http://example.com'!!}" frameborder="0"></iframe>
-          
-    </div>
-
 
 </div>
 <style>

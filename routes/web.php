@@ -37,6 +37,7 @@ Route::get('send-mail', function () {
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/aulas1/{id}', [StudentLessonsController::class, 'viewLesson' ]);
 
 Route::view('/', 'landing');
 
