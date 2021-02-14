@@ -32,7 +32,7 @@ return [
     'google' => [
         'client_id' => '257546018740-oi7thfu2gti6a2l8epe140agftigv3cc.apps.googleusercontent.com',
         'client_secret' => 'LWN_Ug3ajVUSNWQMMM3TOhkv',
-        'redirect' => 'http://localhost:8000/auth/google/callback',
+        'redirect' => 'https://expert.co.mz/auth/google/callback',
     ],
     'facebook' => [
         'client_id' => env('FACEBOOK_APP_ID'),

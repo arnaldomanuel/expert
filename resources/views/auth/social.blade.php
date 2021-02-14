@@ -60,7 +60,7 @@
            
             .inner-card{
               width: 100%!important;
-              border: 1px red solid;
+             
           }
           .row .col.offset-s3 {
              margin-left: 0% !important; 
