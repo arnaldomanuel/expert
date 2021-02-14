@@ -15,21 +15,23 @@
     </div>
   </div>
 </section>
+
+
 <div class="row">
-    <div class="col s12 m12 l12 xl12">
-    <nav style="margin: 0 auto;" class="nav-search orange">
-        <div   class=" nav-search  nav-wrapper orange">
-          <form>
-            <div  class="input-field">
-              <input id="search" type="search" placeholder="Pesquise por cursos e módulos" required>
-              <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-              <i class="material-icons">close</i>
-            </div>
-          </form>
+  <nav class="search-box-all orange container nav-search-product ">
+    <div class="nav-wrapper">
+      <form action="" method="GET">
+        <div class="input-field">
+          <input id="search" name="searchText" type="search" placeholder="@yield('placeholder', 'Pesquise por cursos ou módulos')" required>
+          <label  class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
         </div>
-      </nav>
+      </form>
     </div>
+  </nav>
 </div>
+
+
 <div id="courses" class="row">
     <div class="col s12 m12 l12 xl12">
         <h1 style="border-bottom: 1px solid black;  padding-bottom: 10px; padding-top:20px;"><span class="material-icons">
@@ -50,6 +52,9 @@
 </div>
 
 <style>
+  .nav-search-product{
+   margin-top: 20px; margin-bottom: 20px; border-radius: 30px; 
+}
   #hero .btn-get-started {
     font-family: "Raleway", sans-serif;
     font-weight: 600;
