@@ -5,14 +5,27 @@
       </span></a>
     <a href="/" class="black-text brand-logo"><img width="100px" style="margin-top: 7px;" src="/img/logo.png" alt=""></a>
 
+  
     <ul id="nav-mobile" class="right ">
+
+     <span class="hide-on-small-only">
+      <li><a style="color: #FF9700 !important; font-weight: 700;" href='/cursos' >Cursos</a>
+      </li>
+      <li><a style="color: #FF9700 !important; font-weight: 700;" href='/' >Página Inicial</a>
+      </li>
+     </span>
+    
+  
       @auth
+      <li><a style="color: #FF9700 !important; font-weight: 700;" href='/meus-cursos' >Subscrições</a>
+      </li>
         <li><a href='#' data-target='dropdown1' class="uppercase dropdown-trigger profile-link white-text" >
           {{substr(auth()->user()->name, 0, 1)}}</a>
         </li>
+
       @endauth
       @guest
-        <li><a style="color: #673ab7 !important; font-weight: 700;" href='/auth/sign-in' >Login</a>
+        <li><a style="color: #FF9700 !important; font-weight: 700;" href='/auth/sign-in' >Login</a>
         </li>
       @endguest
      
