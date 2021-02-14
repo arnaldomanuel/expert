@@ -43,12 +43,12 @@ class GoogleController extends Controller
                     'password' => $course_online,
                     'email_verified_at' => now(),
                 ]);
-                dd($newUser);
+               
                 $newUser->course_online = $course_online; 
                 $newUser->save();
 
                 Auth::login($newUser);
-               
+                dd($newUser);
                 return redirect('/cursos');
             }
     }
