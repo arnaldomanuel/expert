@@ -11,11 +11,11 @@
             <div class="inner-card col s6
             offset-s3 z-depth-1 white" id="panell">
              <h1 class="center">Crie uma conta ou Faça Login</h1>
-               <a href="/facebook/redirect">
+               <!--<a href="/facebook/redirect">
                    <div class="provider-auth deep-purple accent-2 white-text">
                        <p class="center fit-content">Facebook <i class="material-icons left">facebook</i></p>
                    </div>
-               </a>
+               </a> -->
                <a href="/auth/google">
                    <div style="margin-bottom: 20px;" class="provider-auth  orange darken-4 white-text">
                        <p class="center fit-content">Google <i class=" left"><img width="30px" src="/img/g.svg" alt="" ></i></p>

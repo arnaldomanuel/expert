@@ -11,10 +11,19 @@ use Illuminate\Support\Facades\Gate;
 
 class StudentCourseController extends Controller
 {
-    public function viewCourses(){
-        
+    public function viewCourses(Request $request){
+        $searchString  = $request->query('searchString');
+       
+        if ($searchString) {
+            $courses=Course::where([
+                ['name', 'like', '%'.  $searchString.'%'],
+            ])->
+            orWhere('description', 'like', '%'.  $searchString.'%')->get();
+        } else {
+            $courses=Course::all();
+        }
         $data = array(
-            'courses' => Course::all(),
+            'courses' => $courses,
         );
         return view('students.courses.courses')->with($data);
     }

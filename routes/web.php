@@ -14,6 +14,8 @@ use App\Http\Controllers\StudentQuizzController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\CheckAdmin;
+use App\Models\User;
+use Illuminate\Auth\Notifications\VerifyEmail;
 
 Route::get('send-mail', function () {
    
@@ -22,10 +24,23 @@ Route::get('send-mail', function () {
         'body' => 'This is for testing email using smtp'
     ];
    
-    \Mail::to('arnaldomanuel43@gmail.com')->send(new \App\Mail\MyTestMail($details));
+    \Mail::to('arnaldo.nhaguilunguane@outlook.pt')->send(new \App\Mail\MyTestMail($details));
    
     dd("Email is Sent.");
 });
+
+Route::get('send-mail1', function () {
+   
+    $details = [
+        'title' => 'Mail from ItSolutionStuff.com',
+        'body' => 'This is for testing email using smtp'
+    ];
+   
+    User::first()->notify(new VerifyEmail());
+   
+    dd("Email is Sent.");
+});
+
 
 /*
 |--------------------------------------------------------------------------

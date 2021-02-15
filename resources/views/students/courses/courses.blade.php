@@ -1,20 +1,24 @@
 @extends('layouts.public')
 
 @section('main')
+@if ( !Illuminate\Support\Str::contains(URL::full(), 'cursos?searchString'))
 <section id="hero">
-<div class="row">
-    <div class="col s12 m12 l6 xl6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
-      <div>
-        <h1 class="hero-h1">Cursos certos para sua carreira</h1>
-        <h2 class="hero-h2">Escolha o curso que quiser fazer</h2>
-        <p id="actionbtn"><a href="#courses" class="btn-get-started scrollto">Ver cursos</a></p>
+  <div class="row">
+      <div class="col s12 m12 l6 xl6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+        <div>
+          <h1 class="hero-h1">Cursos certos para sua carreira</h1>
+          <h2 class="hero-h2">Escolha o curso que quiser fazer</h2>
+          <p id="actionbtn"><a href="#courses" class="btn-get-started scrollto">Ver cursos</a></p>
+        </div>
+      </div>
+      <div class="col s12 m12 l6 xl6 order-lg-2 hero-img" data-aos="fade-left">
+        <img src="/assets/img/hero-img.png" class="img-fluid" alt="">
       </div>
     </div>
-    <div class="col s12 m12 l6 xl6 order-lg-2 hero-img" data-aos="fade-left">
-      <img src="/assets/img/hero-img.png" class="img-fluid" alt="">
-    </div>
-  </div>
-</section>
+  </section>
+  
+@endif
+
 
 
 <div class="row">
@@ -22,7 +26,7 @@
     <div class="nav-wrapper">
       <form action="" method="GET">
         <div class="input-field">
-          <input id="search" name="searchText" type="search" placeholder="@yield('placeholder', 'Pesquise por cursos ou módulos')" required>
+          <input id="search" name="searchString" type="search" placeholder="@yield('placeholder', 'Pesquise por cursos ou módulos')" required>
           <label  class="label-icon" for="search"><i class="material-icons">search</i></label>
           <i class="material-icons">close</i>
         </div>
