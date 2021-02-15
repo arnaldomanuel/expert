@@ -76,7 +76,7 @@
       <div class="row">
         <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
           <div>
-            <h1>Plataforma digital de ensino de línguas e habilidades vocacionais</h1>
+            <h1>Plataforma digital de ensino e hospedagem de cursos online</h1>
             <h2>Pelo seu desenvolvimento intelectual e profissional.</h2>
             <a href="/cursos" class="btn-get-started scrollto">Ver cursos</a>
           </div>
@@ -103,13 +103,13 @@
             <div class="content pt-4 pt-lg-0">
               <h3>Aprenda Sobre nós</h3>
               <p class="font-italic">
-                O Expert se propõe a permitir a aprendizagem de línguas através do Celular, 
-                computador, ou qualquer outro dispositivo portátil de comunicação;
+                Expert é uma plataforma digital de ensino e hospedagem 
+                de cursos online com o objetivo de melhorar o desenvolvimento intelectual e profissional.
               </p>
               <ul>
-                <li><i class="icofont-check-circled"></i> Facilitar a aprendizagem da língua inglesa e demais línguas disponíveis na plataforma</li>
-                <li><i class="icofont-check-circled"></i> Facilitar a aprendizagem da língua inglesa sem sair de casa ou mesmo estando no seu escritório ou qualquer outro ambiente de trabalho;</li>
-                <li><i class="icofont-check-circled"></i> Dar uma oportunidade de aprender línguas aos funcionários que não tem tempo de sentar na carteira.</li>
+                <li><i class="icofont-check-circled"></i> Crie, organize e distribua seu curso em um ambiente seguro e estável e garanta a melhor experiência para seus alunos.                </li>
+                <li><i class="icofont-check-circled"></i> O Expert se propõe a permitir a aprendizagem  através do Celular, computador, ou qualquer outro dispositivo portátil de comunicação</li>
+                <li><i class="icofont-check-circled"></i> Facilitar a aprendizagem através de uma plataforma online didática.</li>
               </ul>
               <p>
                  Aproveite essa oportunidade e garanta
@@ -196,7 +196,7 @@
             <h3>Escolha já o seu curso</h3>
             <p> O Expert tem o seu domínio em Moçambique e opera em todos países da PALOP e é usado em qualquer canto do mundo.
               Conta com usuários na China,
-              Brazil, Russia, Portugal, África do Sul, Angola, Cabo Verde e Estados Unidos de América.</p>
+              Brazil, Rússia, Portugal, África do Sul, Angola, Cabo Verde e Estados Unidos de América.</p>
           </div>
           <div class="col-lg-3 cta-btn-container text-center">
             <a class="cta-btn align-middle" href="/cursos">Escolher curso</a>
