@@ -80,7 +80,7 @@
                <div id="objectives">
                 <div class="form-group">
                     <label for="objective1">Objectivo</label>
-                    <input type="text" class="form-control" maxLength="140" name="objective1" id="objective1">
+                    <input type="text" class="form-control" maxLength="230" name="objective1" id="objective1">
                 </div>
                </div>
                 <span class="btn btn-primary" id="addObjective">Adicionar objectivo</span>
