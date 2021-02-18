@@ -80,14 +80,14 @@
                <div id="objectives">
                 <div class="form-group">
                     <label for="objective1">Objectivo</label>
-                    <input type="text" class="form-control" name="objective1" id="objective1">
+                    <input type="text" class="form-control" max="140" name="objective1" id="objective1">
                 </div>
                </div>
                 <span class="btn btn-primary" id="addObjective">Adicionar objectivo</span>
                <p></p>
                 <p>Aulas sob demanda</p>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="ondemand" id="ondemand1" value="1">
+                    <input class="form-check-input"  type="radio" name="ondemand" id="ondemand1" value="1">
                     <label class="form-check-label" for="ondemand1">Sim</label>
                   </div>
                   <div class="form-check form-check-inline">
