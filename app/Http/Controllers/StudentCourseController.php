@@ -20,7 +20,7 @@ class StudentCourseController extends Controller
             ])->
             orWhere('description', 'like', '%'.  $searchString.'%')->get();
         } else {
-            $courses=Course::all();
+            $courses=Course::orderBy('updated_at', 'desc')->get();
         }
         $data = array(
             'courses' => $courses,
