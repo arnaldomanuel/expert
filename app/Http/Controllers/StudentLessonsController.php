@@ -13,12 +13,12 @@ class StudentLessonsController extends Controller
     {
         $lesson = Lesson::findOrFail($id);
 
-        if (!Gate::allows('has-subscription', $lesson)) {
+        /* if (!Gate::allows('has-subscription', $lesson)) {
           
             abort(403, 'Não tem subscrição a este curso.');
         }
 
-        if ($lesson->module->course->ondemand == 1) {
+       if ($lesson->module->course->ondemand == 1) {
             $days = DB::selectOne("SELECT DATEDIFF(now(), updated_at) +1 AS 'days' FROM course_grants
          WHERE course_id=" . $lesson->module->course_id . " and user_id = " . auth()->user()->id);
 
@@ -37,7 +37,7 @@ class StudentLessonsController extends Controller
             if (!$found) {
                 abort(403, 'Termine as aulas anteriores');
             }
-        }
+        }*/
         $suggestions = Lesson::where([
             ['module_id', $lesson->module->id],
             ['id', '<>', $lesson->id]

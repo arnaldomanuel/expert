@@ -63,11 +63,11 @@
                         curso</i></small></span>
             @foreach($suggestions as $lesson)
             <div class="row">
-                <div class="col s6">
-                    <img style="width: 200px; " src="{{url($lesson->module->photo_path)}}" alt="">
+                <div class="col s4">
+                    <img style="width: 100%; " src="{{url($lesson->module->photo_path)}}" alt="">
                 </div>
-                <div class="col s6">
-                    <h6>{{$lesson->name}}</h6>
+                <div class="col s8">
+                    <h5>{{$lesson->name}}</h5>
                 </div>
             </div>
             @endforeach
