@@ -101,6 +101,7 @@ Route::middleware(['auth', CheckAdmin::class])->group(function () {
     Route::post('/admin/approve-token', [CourseGrantController::class, 'approveToken']);
     Route::post('/admin/reprove-token', [CourseGrantController::class, 'reproveTokken']);
     Route::post('/admin/update/objective', [CourseController::class, 'updateObjective']);
+    Route::post('/admin/create/objective', [CourseController::class, 'createObjective']);
     Route::post('/admin/delete/objective', [CourseController::class, 'deleteObjective']);
     Route::get('/admin/coursegrant/search', [CourseGrantController::class, 'search']);
     Route::get('/admin/list-aproved-tokens', [CourseGrantController::class, 'listApprovedTokens']);

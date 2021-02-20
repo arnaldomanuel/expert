@@ -36,6 +36,14 @@
     </div>
 </div>
 <h5>Objectivos do módulo</h5>
+<div style="margin-bottom: 5px;" class="row">
+    <div class="col-sm-12">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#objectivecreate">
+            Adicionar Objectivo
+        </button> 
+    </div>
+</div>
+
 <table class="table table-hover ">
     <thead class="thead-dark">
         <tr>
@@ -142,5 +150,31 @@
     </div>
 </div>
 @endforeach
+
+<div class="modal fade" id="objectivecreate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Adicionar objectivo</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/admin/create/objective" method="post">
+            @csrf
+              <input type="hidden" value="{{$course->id}}" name="course_id">
+            <div class="form-group">
+                <input type="text" name="objective" class="form-control">
+            </div>
+            <button class="btn btn-primary" type="submit">Salvar</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+</div>
 
 @endsection

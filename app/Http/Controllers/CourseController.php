@@ -165,6 +165,13 @@ class CourseController extends Controller
         Objective::destroy($request->objective_id);
         session()->flash('activity', 'Objectivo ' .  ' apagado com sucesso');
         return redirect()->back();
-
+    }
+    public function createObjective(Request $request){
+        $objective =new Objective();
+        $objective->course_id=$request->course_id;
+        $objective->description = $request->objective;
+        $objective->save();
+        session()->flash('activity', 'Objectivo ' . ' criado com sucesso');
+        return redirect()->back();
     }
 }
