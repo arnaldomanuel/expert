@@ -54,6 +54,7 @@ class StudentCourseController extends Controller
         $data= array(
             'courseGrant' => $coursGrant,
             'course' => $course,
+            'modules' => Module::where('course_id', $course->id)->orderBy('order')->get()
         );
         return view('students.courses.show')->with($data);
     }
