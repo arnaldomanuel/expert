@@ -140,7 +140,7 @@
         
                 </div>
                 <div class="row">
-                    @foreach($course->modules as $module)
+                    @foreach($modules as $module)
                     <div class="col s12 m6 l3 xl3">
                         <a href="/quizz/{{$module->id}}">
                             <div class="card-panel teal">

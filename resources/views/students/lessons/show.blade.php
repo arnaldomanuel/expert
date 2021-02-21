@@ -54,6 +54,7 @@
         <div>
             <h3 style="font-size: medium; color: #673ab7; font-weight: 600; margin-top: 0;">»» {{$lesson->module->name}}
             </h3>
+            {!!$lesson->description!!}
            
         </div>
     </div>
@@ -64,10 +65,11 @@
             @foreach($suggestions as $lesson)
             <div class="row">
                 <div class="col s4">
-                    <img style="width: 100%; " src="{{url($lesson->module->photo_path)}}" alt="">
+                    <a href="{{url('/aulas/'.$lesson->id)}}"><img style="width: 100%; " src="{{url($lesson->module->photo_path)}}" alt=""></a>
                 </div>
                 <div class="col s8">
-                    <h5>{{$lesson->name}}</h5>
+                  <div class="mg-0 row"> <a href="{{url('/aulas/'.$lesson->id)}}"> <h5>{{$lesson->name}}</h5></a></div>
+                  <div class="mg-0  row"> <a href="{{'/cursos/'.$lesson->module->course->slug}}">{{$lesson->module->course->name}}</a> </div>
                 </div>
             </div>
             @endforeach
@@ -80,6 +82,7 @@
     body {
         background-color: #edeaf1;
     }
+    .mg-0 {margin:0}
     h1, h2, h3, h4 {
             font-size: large !important;
             font-weight: 600 !important;
