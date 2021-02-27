@@ -85,22 +85,52 @@
                </div>
                 <span class="btn btn-primary" id="addObjective">Adicionar objectivo</span>
                <p></p>
-                <p>Aulas sob demanda</p>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input"  type="radio" name="ondemand" id="ondemand1" value="1">
-                    <label class="form-check-label" for="ondemand1">Sim</label>
+               
+
+                  <div class="row">
+                      <div class="col-sm-6">
+                        <p>Aulas sob demanda</p>
+                        <div id="ondemanddiv1" class="form-check form-check-inline">
+                            <input class="form-check-input"  type="radio" name="ondemand" id="ondemand1" value="1">
+                            <label class="form-check-label" for="ondemand1">Sim</label>
+                        </div>
+                          <div class="form-check form-check-inline" id="ondemanddiv2">
+                            <input class="form-check-input" type="radio" name="ondemand" id="ondemand2" checked value="0">
+                            <label class="form-check-label" for="ondemand2">Não</label>
+                          </div> <p></p>
+                      </div>
+                      <div class="col-sm-6" id="demand">
+                        <div class="form-group">
+                            <label for="start_lesson">Data de ínicio das aulas</label>
+                            <input required type="date"  value="{{old('start_lesson')}}"  
+                            class="form-control" name="start_lesson" id="start_lesson"  >
+                        </div>
+                      </div>
                   </div>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="ondemand" id="ondemand2" checked value="0">
-                    <label class="form-check-label" for="ondemand2">Não</label>
-                  </div> <p></p>
                 <button type="submit" class="btn btn-primary">Criar Curso</button>
             </form>
         </div>
     </div>
 </div>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
+
+    $(document).ready(function(){
+        $('#demand').hide()
+        $('#ondemanddiv1').click(function(){
+            $('#demand').show()
+        })
+        $('#ondemanddiv2').click(function(){
+            $('#demand').hide()
+        })
+    })
+
+
+
+
+    $("#lesson_start").flatpickr({ enableTime: true,
+    dateFormat: "Y-m-d H:i",});
 ClassicEditor
 .create( document.querySelector( '#body' ) )
 .catch( error => {

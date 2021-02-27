@@ -45,6 +45,7 @@ class CourseService {
         }
         $course->name = $request->name;
          $course->price = $request->price;
+         $course->start_lesson= $request->start_lesson;
         $course->description = $request->description;
         $course->ondemand = $request->ondemand;
         $course->slug = Str::slug($request->name);
@@ -53,6 +54,7 @@ class CourseService {
 
         $getInLoop = true;
         $aux = 0;
+        
       
         while($getInLoop && $aux < 3){
          
@@ -61,17 +63,29 @@ class CourseService {
                 $course->save();
                 $getInLoop = false;
             } catch (\Illuminate\Database\QueryException $ex) {
+               
                 if (Str::contains($ex->getMessage(), 'courses_slug_unique')) {
-                    $course->slug .= '-'. date('s');
-                }
+                    $course->slug .= '-'. Str::random(3);
+                } else {
+                    $validator->errors()->add('error.logic', 'Um erro ocorreu ao gravar o curso. Contacte a equipe técnicca');
+           
+                    return redirect()->back()
+                        ->withErrors($validator)
+                        ->withInput();
+            
+                    }
             }
         }
-        $validator->errors()->add('error.logic', 'Um erro ocorreu ao gravar o curso, contacte a equipe técnica');
-        if ($aux>=3) {
-            return redirect()->back()
-                ->withErrors($validator)
-                ->withInput();
-        }
+       if ($aux>=3) {
+
+        dd('a ', $course->slug, $aux);
+        $validator->errors()->add('error.logic', 'Um erro ocorreu ao gravar o curso, Existe um curso com nome parecido. Tente um novo nome');
+            if ($aux>=3) {
+                return redirect()->back()
+                    ->withErrors($validator)
+                    ->withInput();
+            }
+       }
         $a =1;
         while ($request->input('objective'.$a)) {
             # code...

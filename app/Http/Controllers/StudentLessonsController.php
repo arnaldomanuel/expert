@@ -13,7 +13,7 @@ class StudentLessonsController extends Controller
     {
         $lesson = Lesson::findOrFail($id);
 
-        /* if (!Gate::allows('has-subscription', $lesson)) {
+         if (!Gate::allows('has-subscription', $lesson)) {
           
             abort(403, 'Não tem subscrição a este curso.');
         }
@@ -37,7 +37,7 @@ class StudentLessonsController extends Controller
             if (!$found) {
                 abort(403, 'Termine as aulas anteriores');
             }
-        }*/
+        }
         $suggestions = Lesson::where([
             ['module_id', $lesson->module->id],
             ['id', '<>', $lesson->id]

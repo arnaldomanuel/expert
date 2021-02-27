@@ -61,7 +61,7 @@ class ModuleController extends Controller
         ];
         $rules = [
             'photo_path' => 'required|file|image|max:700',
-            'name' => 'required|unique:modules|max:255',
+            'name' => 'required|max:255',
             'description' => 'required',
             'order' => 'required|gte:0'
         ];
