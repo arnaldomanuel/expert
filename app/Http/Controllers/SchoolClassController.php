@@ -13,10 +13,16 @@ class SchoolClassController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $courses = Course::where('user_id', auth()->user()->id)->get();
-        $schoolClasses = SchoolClass::all();
+        $schoolClasses = SchoolClass::join('courses', 'courses.id', '=', 'course_id')
+                ->select('school_classes.*')
+                ->where('courses.user_id', auth()->user()->id)
+                ->get();
+        if ($request->query('course')) {
+            $schoolClasses = SchoolClass::where('course_id', $request->query('course'))->get();
+        }
         return view('classes.index', compact('courses', 'schoolClasses'));
     }
 
@@ -39,7 +45,7 @@ class SchoolClassController extends Controller
     public function store(Request $request)
     {
         SchoolClass::create($request->all());
-        $schoolClasses = SchoolClass::all();
+    
         $request->session()->flash('activity', 'Turma criada com sucesso');
         return redirect('/admin/school-class');
     }

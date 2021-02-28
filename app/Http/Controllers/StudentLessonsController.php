@@ -33,10 +33,10 @@ class StudentLessonsController extends Controller
             $numberOfDays=explode(':', $select->hours)[0]/24;
             if ($numberOfDays>0) {
                 if ($lesson->order > $numberOfDays) {
-                    abort(403);
+                    abort(403, 'Aula ainda não está disponível');
                 }
             } else {
-                abort(403);
+                abort(403, 'Aula ainda não está disponível');
             }
            
         }

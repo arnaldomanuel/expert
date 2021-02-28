@@ -116,6 +116,12 @@ class CourseGrantController extends Controller
         $token = $request->search;
 
         $data = array(
+            'schoolClasses' => SchoolClass::join('courses', 'school_classes.course_id', '=', 'courses.id')
+                                    ->select('courses.name as curso', 'school_classes.*')
+                                    ->where([
+                                        ['courses.user_id', auth()->user()->id],
+                                        ['school_classes.active', 1]
+                                    ])->get(),
             'courseGrants' => CourseGrant::join('courses', 'course_grants.course_id', '=', 'courses.id')
                                 ->select('courses.*', 'course_grants.*')
                                 ->where([

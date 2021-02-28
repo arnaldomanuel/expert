@@ -73,7 +73,7 @@
 
         <div class="row">
             <div class="col-sm-12">
-                <h4>Lista de turmas</h4>
+                <h4>Lista de turmas de todos os cursos</h4>
                 <table class="table table-hover ">
                     <thead class="thead-dark">
                         <tr>
