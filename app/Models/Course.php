@@ -23,4 +23,7 @@ class Course extends Model
     public function objectives(){
         return $this->hasMany('App\Models\Objective');
     }
+    public function schoolClasses(){
+        return $this->hasMany('App\Models\SchoolClass');
+    }
 }

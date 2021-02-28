@@ -128,6 +128,8 @@ class CourseController extends Controller
         $deletePath = Str::replaceFirst('storage', 'public', $course->thumbnail);
         Storage::disk('local')->delete($deletePath);
         $course->modules()->delete();
+        $course->schoolClasses()->delete();
+        $course->objectives()->delete();
         $course->destroy($id);
         session()->flash('activity', 'Curso: ' . $course->name . ' apagado com sucesso');
         
