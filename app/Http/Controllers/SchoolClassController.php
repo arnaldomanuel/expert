@@ -84,7 +84,9 @@ class SchoolClassController extends Controller
         $schoolClass= SchoolClass::findOrFail($id);
         $schoolClass->class_name = $request->class_name;
         $schoolClass->course_id = $request->course_id;
-        $schoolClass->start_lesson = $request->start_lesson;
+       if ($request->start_lesson) {
+            $schoolClass->start_lesson = $request->start_lesson;
+       }
         $schoolClass->active = $request->active ? 1 :0;
         $schoolClass->save();
       
