@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class DropForeignModulesTable extends Migration
+class AddStartLessonDateToSchoolClassesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class DropForeignModulesTable extends Migration
      */
     public function up()
     {
-        Schema::table('modules', function (Blueprint $table) {
-            $table->dropIndex('modules_name_unique');
-            
+        Schema::table('school_classes', function (Blueprint $table) {
+            $table->dateTime('start_lesson')->nullable();
         });
     }
 
@@ -26,6 +25,8 @@ class DropForeignModulesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('school_classes', function (Blueprint $table) {
+            //
+        });
     }
 }

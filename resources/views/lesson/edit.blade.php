@@ -62,7 +62,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="order">Número de ordem do módulo</label>
+                    <label for="order">Número de ordem da aula</label>
                     <input type="text" maxlength="255" value="{{$lesson->order}}" required class="form-control" name="order" id="order" aria-describedby="emailHelp">
                 </div>
                 <div class="form-group">

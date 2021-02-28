@@ -62,35 +62,17 @@
 
         <div class="">
             <div class="row">
-                <table class="table table-hover ">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">User</th>
-                            <th scope="col">Email do user</th>
-                            <th scope="col">Código de acesso</th>
-                            <th scope="col">Curso</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                
-                        @foreach ($courseGrants as $courseGrant)
-                            <tr>
-                                <td>{{$courseGrant->user->name}}</td>
-                                <td>{{$courseGrant->user->email}}</td>
-                                <td> {{$courseGrant->token}} </td>
-                                <td> {{$courseGrant->name}} </td>
-                                <td> <button class="btn btn-primary" data-target="#changeToken{{$courseGrant->id}}" data-toggle="modal">Alterar estado</button> </td>
-                            </tr>
-                        @endforeach
-                
-                    </tbody>
-                </table>
-                <p class="text-center">{{$courseGrants->links()}}</p>
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group" role="group" aria-label="Third group">
+                        <button type="button" data-toggle="modal" data-target="#createclass" class="btn btn-secondary">Criar turma</button>
+                    </div>                   
+                  </div>
             </div>
         </div>
+
      
     </div>
 </div>
-@include('modals.change-token')
+
+@include('modals.create-class')
 @endsection

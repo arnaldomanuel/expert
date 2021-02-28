@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Definições')
+@section('title', 'Lista de turmas')
 
 @section('main')
 
@@ -60,37 +60,53 @@
         </div>
         @endif
 
-        <div class="">
-            <div class="row">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group" role="group" aria-label="Third group">
+                        <button type="button" data-toggle="modal" data-target="#createclass" class="btn btn-secondary">Criar turma</button>
+                    </div>                   
+                  </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <h4>Lista de turmas</h4>
                 <table class="table table-hover ">
                     <thead class="thead-dark">
                         <tr>
-                            <th scope="col">User</th>
-                            <th scope="col">Email do user</th>
-                            <th scope="col">Código de acesso</th>
+                            <th scope="col">Nome</th>
                             <th scope="col">Curso</th>
-                            <th scope="col"></th>
+                            <th scope="col">Activo</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
+                    @foreach ($schoolClasses as $schoolClass)
+                        <tr>
+                            <td> {{$schoolClass->class_name}}</td>
+                            <td> {{$schoolClass->course->name}}</td>
+                            <td> {{$schoolClass->active === 1 ? 'Sim' : 'Não'}}</td>
+                            <td>
+                                <button data-target="#liststudent{{$schoolClass->id}}" data-toggle="modal" class="btn btn-primary" >Ver lista de alunos</button>
+                                <button data-target="#createclass{{$schoolClass->id}}" data-toggle="modal" class="btn btn-primary">Editar</button>
+                            </td>
+                        </tr>
+                    @endforeach
                 
-                        @foreach ($courseGrants as $courseGrant)
-                            <tr>
-                                <td>{{$courseGrant->user->name}}</td>
-                                <td>{{$courseGrant->user->email}}</td>
-                                <td> {{$courseGrant->token}} </td>
-                                <td> {{$courseGrant->name}} </td>
-                                <td> <button class="btn btn-primary" data-target="#changeToken{{$courseGrant->id}}" data-toggle="modal">Alterar estado</button> </td>
-                            </tr>
-                        @endforeach
                 
                     </tbody>
                 </table>
-                <p class="text-center">{{$courseGrants->links()}}</p>
+                
             </div>
         </div>
+
      
     </div>
 </div>
-@include('modals.change-token')
+@include('modals.list-students')
+@include('modals.create-class')
+@include('modals.edit-class')
 @endsection

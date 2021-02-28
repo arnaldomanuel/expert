@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CourseGrant;
+use App\Models\SchoolClass;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -13,6 +14,12 @@ class CourseGrantController extends Controller
 
     public function getAccess(){
         $data = array(
+            'schoolClasses' => SchoolClass::join('courses', 'school_classes.course_id', '=', 'courses.id')
+                                        ->select('courses.name as curso', 'school_classes.*')
+                                        ->where([
+                                            ['courses.user_id', auth()->user()->id],
+                                            ['school_classes.active', 1]
+                                        ])->get(),
             'courseGrants' => CourseGrant::join('courses', 'course_grants.course_id', '=', 'courses.id')
                                 ->select('courses.*', 'course_grants.*')
                                 ->where([
@@ -29,6 +36,7 @@ class CourseGrantController extends Controller
             ])->first();
         if ($courseGrant) {
             $courseGrant->authorize = 1;
+            $courseGrant->school_classs_id  = $request->school_class_id;
             $courseGrant->save();
             $request->session()->flash('activity', 'Código de acesso aprovado');
         }
@@ -116,5 +124,15 @@ class CourseGrantController extends Controller
                                 ])->paginate(40),
         );
         return view('course-grant.course-grant-list')->with($data);
+    }
+
+    public function changeState(Request $request){
+        $courseGrant = CourseGrant::find($request->course_grant_id);
+        $courseGrant->authorize=$request->state;;
+        $courseGrant->save();
+
+        $request->session()->flash('activity', 'Estado do token alterado com sucesso');
+        return redirect('/admin/access-tokens');
+        
     }
 }

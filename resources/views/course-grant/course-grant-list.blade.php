@@ -61,7 +61,6 @@
                             <label for="name">Pesquisar por token</label>
                             <input type="search" class="form-control" name="search" id="">
                         </div>
-                    
                     </form>
                 </div>
 
@@ -69,6 +68,7 @@
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">User</th>
+                            <th scope="col">Email do user</th>
                             <th scope="col">Código de acesso</th>
                             <th scope="col">Curso</th>
                             <th scope="col"></th>
@@ -78,20 +78,19 @@
                 
                         @foreach ($courseGrants as $courseGrant)
                         <tr>
-                            <td>{{$courseGrant->user_id}}</td>
+                            <td>{{$courseGrant->user->name}}</td>
+                            <td>{{$courseGrant->user->email}}</td>
                             <td> {{$courseGrant->token}} </td>
                             <td> {{$courseGrant->name}} </td>
 
                            
                             <td>
                                 @if ($courseGrant->authorize == 0)
-                                <form style="display: inline-block;" action="/admin/approve-token" method="POST">
-                                    <input type="hidden" value="{{$courseGrant->token}}" name="token">
-                                    <input type="hidden" value="{{$courseGrant->user_id}}" name="user_id">
-                                    @csrf
-                                    <button class="btn btn-primary">Aprovar</button> 
-                                </form>
-
+                             
+                                    <button data-target="#approveToken{{$courseGrant->id}}" 
+                                        data-toggle="modal"
+                                        class="btn btn-primary">Aprovar</button> 
+                              
 
                                 <form style="display: inline-block;" action="/admin/reprove-token" method="POST">
                                     <input type="hidden" value="{{$courseGrant->token}}" name="token">
@@ -107,13 +106,8 @@
                                     Reprovado
                                 @endif
                             </td>
-                          
-
-
-                           
                         </tr>
-                        @endforeach
-                
+                        @endforeach    
                     </tbody>
                 </table>
                 <p class="text-center">{{$courseGrants->links()}}</p>
@@ -123,4 +117,6 @@
     </div>
 </div>
 
+
+@include('modals.approve-token')
 @endsection

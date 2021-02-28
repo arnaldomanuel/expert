@@ -17,6 +17,9 @@ class CourseGrant extends Model
     //1 aproved
     //2 reprovado
     public function user(){
-        return $this->belongsTo('App\Models\CourseGrant');
+        return $this->belongsTo('App\Models\User');
+    }
+    public function schoolClass(){
+        return $this->belongsTo('App\Models\SchoolClass', 'school_classs_id');
     }
 }

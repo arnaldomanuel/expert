@@ -118,12 +118,12 @@
 
     $(document).ready(function(){
         $('#demand').hide()
-        $('#ondemanddiv1').click(function(){
+        /*$('#ondemanddiv1').click(function(){
             $('#demand').show()
         })
         $('#ondemanddiv2').click(function(){
             $('#demand').hide()
-        })
+        })*/
     })
 
 

@@ -7,6 +7,7 @@ use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\QuizzController;
+use App\Http\Controllers\SchoolClassController;
 use App\Http\Controllers\SocialAuthFacebookController;
 use App\Http\Controllers\StudentCourseController;
 use App\Http\Controllers\StudentLessonsController;
@@ -106,10 +107,12 @@ Route::middleware(['auth', CheckAdmin::class])->group(function () {
     Route::get('/admin/coursegrant/search', [CourseGrantController::class, 'search']);
     Route::get('/admin/list-aproved-tokens', [CourseGrantController::class, 'listApprovedTokens']);
     Route::get('/admin/list-reproved-tokens', [CourseGrantController::class, 'listReprovedTokens']);
+    Route::post('/admin/change-state-token', [CourseGrantController::class, 'changeState']);
     Route::get('/admin/course/{id}/members', [CourseController::class, 'members']);
     Route::resource('/admin/module', ModuleController::class);
     Route::resource('/admin/lesson', LessonController::class);
     Route::resource('/admin/course', CourseController::class);
     Route::resource('/admin/quizz', QuizzController::class);
+    Route::resource('/admin/school-class', SchoolClassController::class);
 
 });

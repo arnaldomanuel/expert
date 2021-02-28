@@ -40,6 +40,9 @@ function requestToken() {
             if (error.status == 401) {
                 window.location.href = "/auth/sign-in"
             }
+            if (error.status==403) {
+                window.location.href = "/email/verify"
+            }
         }
     });
 

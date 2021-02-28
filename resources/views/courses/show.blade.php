@@ -20,7 +20,7 @@
         >Apagar {{$course->name}}</button></span>
 
         <span class="btn btn-primary" style="position: absolute; top: 100px; right: 0px; 
-        color: white !important;"><a style="color: white !important;" href="/admin/course/{{$course->id}}/members">Ver membros</a></span>
+        color: white !important;"><a style="color: white !important;" href="/admin/course/{{$course->id}}/members">Turmas</a></span>
         
         
         <div class="col-sm1-2">

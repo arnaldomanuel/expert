@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CourseGrant;
 use App\Models\Lesson;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -13,30 +14,31 @@ class StudentLessonsController extends Controller
     {
         $lesson = Lesson::findOrFail($id);
 
-         if (!Gate::allows('has-subscription', $lesson)) {
-          
+        if (!Gate::allows('has-subscription', $lesson)) {
+
             abort(403, 'Não tem subscrição a este curso.');
         }
 
-       if ($lesson->module->course->ondemand == 1) {
-            $days = DB::selectOne("SELECT DATEDIFF(now(), updated_at) +1 AS 'days' FROM course_grants
-         WHERE course_id=" . $lesson->module->course_id . " and user_id = " . auth()->user()->id);
 
-            $ids = DB::select("SELECT lessons.id from lessons JOIN modules 
-        on module_id = modules.id LEFT JOIN courses on modules.course_id = courses.id 
-        WHERE course_id = " . $lesson->module->course_id . "  ORDER BY lessons.order 
-        ASC LIMIT " . $days->days);
+        if ($lesson->module->course->ondemand == 1) {
+            $courseGrant = CourseGrant::where([
+                ['user_id', auth()->user()->id],
+                ['course_id', $lesson->module->course->id],
+                ['authorize', CourseGrant::APPROVED],
+            ])->first();
 
-            $found = false;
-            foreach ($ids as $idArray) {
-                if ($idArray->id == $id) {
-                    $found = true;
-                    break;
+            $start_lesson = $courseGrant->schoolClass->start_lesson;
+            $select = DB::selectOne('select timediff(now(), "'.$start_lesson.'") as hours');
+
+            $numberOfDays=explode(':', $select->hours)[0]/24;
+            if ($numberOfDays>0) {
+                if ($lesson->order > $numberOfDays) {
+                    abort(403);
                 }
+            } else {
+                abort(403);
             }
-            if (!$found) {
-                abort(403, 'Termine as aulas anteriores');
-            }
+           
         }
         $suggestions = Lesson::where([
             ['module_id', $lesson->module->id],

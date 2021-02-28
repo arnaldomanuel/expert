@@ -125,6 +125,7 @@ class CourseService {
         }
         $course->name = $request->name;
         $course->price = $request->price;
+        $course->ondemand = $request->ondemand;
         $course->description = $request->description;
         $course->save(); 
         return "OK";

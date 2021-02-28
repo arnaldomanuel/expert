@@ -72,6 +72,28 @@
                         {!!$course->description!!}
                     </textarea>    
                 </div>
+                <div class="row">
+                    <div class="row">
+                        <div class="col-sm-12">
+                          <p>Aulas sob demanda</p>
+                          <div id="ondemanddiv1" class="form-check form-check-inline">
+                              <input class="form-check-input"  type="radio"
+                              @if ($course->ondemand == 1)
+                                  checked
+                              @endif
+                              name="ondemand" id="ondemand1" value="1">
+                              <label class="form-check-label" for="ondemand1">Sim</label>
+                          </div>
+                            <div class="form-check form-check-inline" id="ondemanddiv2">
+                              <input class="form-check-input" type="radio" name="ondemand" id="ondemand2" @if ($course->ondemand == 0)
+                                  checked
+                              @endif value="0">
+                              <label class="form-check-label" for="ondemand2">Não</label>
+                            </div> <p></p>
+                        </div>
+                    </div>
+                </div>
+                </div>
                 <button type="submit" class="btn btn-primary">Actualizar Curso</button>
             </form>
         </div>
