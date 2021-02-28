@@ -30,7 +30,7 @@ class StudentLessonsController extends Controller
             $start_lesson = $courseGrant->schoolClass->start_lesson;
             $select = DB::selectOne('select timediff(now(), "'.$start_lesson.'") as hours');
 
-            $numberOfDays=explode(':', $select->hours)[0]/24;
+            $numberOfDays=explode(':', $select->hours)[0]/24 + 1;
             if ($numberOfDays>0) {
                 if ($lesson->order > $numberOfDays) {
                     abort(403, 'Aula ainda não está disponível');
