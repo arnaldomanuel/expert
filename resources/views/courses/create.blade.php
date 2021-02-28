@@ -129,7 +129,7 @@
 
 
 
-    $("#lesson_start").flatpickr({ enableTime: true,
+    $("#start_lesson").flatpickr({ enableTime: true,
     dateFormat: "Y-m-d H:i",});
 ClassicEditor
 .create( document.querySelector( '#body' ) )
