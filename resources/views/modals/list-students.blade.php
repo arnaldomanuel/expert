@@ -23,9 +23,11 @@
             </thead>
             <tbody>
                 @foreach ($schoolClass->courseGrants as $courseGrant)
+                  <tr>
                     <td>{{$courseGrant->user->id}}</td>
                     <td>{{$courseGrant->user->name}}</td>
                     <td>{{$courseGrant->user->email}}</td>
+                  </tr>
                 @endforeach
             </tbody>
             </table>
