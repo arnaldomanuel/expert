@@ -42,7 +42,7 @@ Route::get('send-mail1', function () {
     dd("Email is Sent.");
 });
 
-\Log::debug('Here is some debug information');
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

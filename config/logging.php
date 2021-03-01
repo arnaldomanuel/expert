@@ -35,10 +35,9 @@ return [
     */
 
     'channels' => [
-        
         'stack' => [
             'driver' => 'stack',
-            'channels' => ['rollbar','single'],
+            'channels' => ['single'],
             'ignore_exceptions' => false,
         ],
 
@@ -61,12 +60,6 @@ return [
             'username' => 'Laravel Log',
             'emoji' => ':boom:',
             'level' => env('LOG_LEVEL', 'critical'),
-        ],
-        'rollbar' => [
-            'driver' => 'monolog',
-            'handler' => \Rollbar\Laravel\MonologHandler::class,
-            'access_token' => env('ROLLBAR_TOKEN'),
-            'level' => 'debug',
         ],
 
         'papertrail' => [
