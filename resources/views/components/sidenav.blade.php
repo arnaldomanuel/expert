@@ -13,8 +13,9 @@
                     </a>
                     <a href="#name"><span class="white-text name">{{auth()->user()->name}}</span></a>
                     <a href="#email"><span class="white-text email">{{auth()->user()->email}}</span></a>
-                    <a class="btn" href="nnn">Login</a>
+                    
                 @endauth
+
                 @guest
                     <a href="/auth/sign-in"   class="waves-effect waves-light login-btn btn">
                         <i class="material-icons right">login</i>Login

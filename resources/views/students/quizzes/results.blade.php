@@ -12,9 +12,6 @@
    
 
     @foreach ($quizzResults as $quizzResult)
-        
-    @endforeach
-
     <div class="col s12 m4">
       <div class="card {{$quizzResult->count >= $quizzResult->total_count/2 ? 'teal' : 'red darken-2'}}      ">
         <div class="card-content white-text">
@@ -30,5 +27,8 @@
      
       </div>
     </div>
+    @endforeach
+
+  
   </div>
 @endsection
