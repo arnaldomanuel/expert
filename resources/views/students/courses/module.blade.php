@@ -19,7 +19,7 @@
                 <div class="row valign-wrapper">
                     <div class="col s6">
                        
-                            <img src="{{$module->course->user->profilepic ? $module->course->user->profilepic : url('img/avatar.jpg') }}" alt="" class="circle  responsive-img"> <!-- notice the "circle" class -->
+                            <img src="/{{$module->course->user->profilepic ? $module->course->user->profilepic : url('img/avatar.jpg') }}" alt="" class="circle  responsive-img"> <!-- notice the "circle" class -->
                         
                     </div>
                     <div class="col s10">

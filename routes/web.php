@@ -58,7 +58,6 @@ Route::get('/aulas1/{id}', [StudentLessonsController::class, 'viewLesson' ]);
 Route::view('/', 'landing');
 
 
-
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return redirect('/cursos');
     return view('dashboard');
@@ -71,7 +70,7 @@ Route::get('/ad', function(){
 Route::get('/cursos', [StudentCourseController::class, 'viewCourses' ]);
 Route::get('/cursos/{slug}', [StudentCourseController::class, 'viewCourse' ]);
 Route::get('/modulos/{id}', [StudentCourseController::class, 'viewModule' ]);
-Route::get('/meus-cursos', [StudentCourseController::class, 'showStudentCourses']);
+
 
 
 
@@ -87,6 +86,7 @@ Route::get('/facebook/callback', [SocialAuthFacebookController::class, 'callback
 
 
 Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/meus-cursos', [StudentCourseController::class, 'showStudentCourses']);
     Route::get('/aulas/{id}', [StudentLessonsController::class, 'viewLesson' ]);
     Route::get('/quizz/{id}', [StudentQuizzController::class, 'viewQuizz' ]);
     Route::post('/quizz/result', [StudentQuizzController::class, 'postResult']);
