@@ -26,7 +26,7 @@
             </div>
         </li>
         <li><a class="waves-effect" href="/cursos"><i class="material-icons">bookmark_border</i>Cursos</a></li>
-        <li><a class="waves-effect" href="/meus-cursos"><i class="material-icons">bookmark_border</i>Subscrições</a></li>
+        <li><a class="waves-effect" href="/meus-cursos"><i class="material-icons">bookmark_border</i>Meus cursos</a></li>
          <li><a class="waves-effect" href="/my-results/quizz"><i class="material-icons">help</i>Resultados do Quizz</a></li>
         
         <li>

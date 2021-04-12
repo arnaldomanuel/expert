@@ -89,7 +89,7 @@ class CourseGrantController extends Controller
 
     public function requestAccessToken(Request $request){
        $courseGrant= CourseGrant::where([
-        ['user_id', '=', auth()->user()->id],
+            ['user_id', '=', auth()->user()->id],
             ['course_id', '=', $request->course_id],
             ['authorize', '=', 0]
         ])->first();
@@ -99,11 +99,12 @@ class CourseGrantController extends Controller
        }
         $courseGrant->user_id = auth()->user()->id;
         $courseGrant->course_id = $request->course_id;
-        $token = Str::random(6);
+        $token = Str::random(8);
         try {
             $courseGrant->token = $token;
             $courseGrant->save();
         } catch (QueryException $ex) {
+            
             if (Str::contains($ex->getMessage(), 'course_grants_token_unique')) {
                 $courseGrant->token = $token . Str::random(3);
                 $courseGrant->save(); 

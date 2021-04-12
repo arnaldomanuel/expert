@@ -17,7 +17,7 @@
     
   
       @auth
-      <li><a style="color: #FF9700 !important; font-weight: 700;" href='/meus-cursos' >Subscrições</a>
+      <li><a style="color: #FF9700 !important; font-weight: 700;" href='/meus-cursos' >Meus cursos</a>
       </li>
         <li><a href='#' data-target='dropdown1' class="uppercase dropdown-trigger profile-link white-text" >
           {{substr(auth()->user()->name, 0, 1)}}</a>

@@ -1,18 +1,47 @@
- $days = DB::selectOne("SELECT DATEDIFF(now(), updated_at) +1 AS 'days' FROM course_grants
-         WHERE course_id=" . $lesson->module->course_id . " and user_id = " . auth()->user()->id);
+update lessons join modules on lessons.module_id = modules.id join courses on modules.course_id=courses.id  
+SET lessons.order =  lessons.order - 2  where courses.id=4 and lessons.order=21 order By lessons.order desc;
 
-            $ids = DB::select("SELECT lessons.id from lessons JOIN modules 
-        on module_id = modules.id LEFT JOIN courses on modules.course_id = courses.id 
-        WHERE course_id = " . $lesson->module->course_id . "  ORDER BY lessons.order 
-        ASC LIMIT " . $days->days);
+update lessons join modules on lessons.module_id = modules.id join courses on modules.course_id=courses.id  
+SET lessons.order =  lessons.order - 2  where courses.id=4 and lessons.order=20 order By lessons.order desc;
 
-            $found = false;
-            foreach ($ids as $idArray) {
-                if ($idArray->id == $id) {
-                    $found = true;
-                    break;
-                }
-            }
-            if (!$found) {
-                abort(403, 'Termine as aulas anteriores');
-            }
+update lessons join modules on lessons.module_id = modules.id join courses on modules.course_id=courses.id  
+SET lessons.order =  lessons.order - 2  where courses.id=4 and lessons.order=19 order By lessons.order desc;
+
+update lessons join modules on lessons.module_id = modules.id join courses on modules.course_id=courses.id  
+SET lessons.order =  lessons.order - 2  where courses.id=4 and lessons.order=18 order By lessons.order desc;
+
+update lessons join modules on lessons.module_id = modules.id join courses on modules.course_id=courses.id  
+SET lessons.order =  lessons.order - 2  where courses.id=4 and lessons.order=17 order By lessons.order desc;
+
+update lessons join modules on lessons.module_id = modules.id join courses on modules.course_id=courses.id  
+SET lessons.order =  lessons.order - 2  where courses.id=4 and lessons.order=16 order By lessons.order desc;
+
+update lessons join modules on lessons.module_id = modules.id join courses on modules.course_id=courses.id  
+SET lessons.order =  lessons.order - 2  where courses.id=4 and lessons.order=15 order By lessons.order desc;
+
+update lessons join modules on lessons.module_id = modules.id join courses on modules.course_id=courses.id  
+SET lessons.order =  lessons.order - 2  where courses.id=4 and lessons.order=14 order By lessons.order desc;
+
+update lessons join modules on lessons.module_id = modules.id join courses on modules.course_id=courses.id  
+SET lessons.order =  lessons.order - 2  where courses.id=4 and lessons.order=13 order By lessons.order desc;
+
+update lessons join modules on lessons.module_id = modules.id join courses on modules.course_id=courses.id  
+SET lessons.order =  lessons.order - 2  where courses.id=4 and lessons.order=12 order By lessons.order desc;
+
+update lessons join modules on lessons.module_id = modules.id join courses on modules.course_id=courses.id  
+SET lessons.order =  lessons.order - 2  where courses.id=4 and lessons.order=11 order By lessons.order desc;
+
+update lessons join modules on lessons.module_id = modules.id join courses on modules.course_id=courses.id  
+SET lessons.order =  lessons.order - 2  where courses.id=4 and lessons.order=10 order By lessons.order desc;
+
+update lessons join modules on lessons.module_id = modules.id join courses on modules.course_id=courses.id  
+SET lessons.order =  lessons.order - 2  where courses.id=4 and lessons.order=9 order By lessons.order desc;
+
+update lessons join modules on lessons.module_id = modules.id join courses on modules.course_id=courses.id  
+SET lessons.order =  lessons.order - 2  where courses.id=4 and lessons.order=8 order By lessons.order desc;
+
+update lessons join modules on lessons.module_id = modules.id join courses on modules.course_id=courses.id  
+SET lessons.order =  lessons.order - 2  where courses.id=4 and lessons.order=7 order By lessons.order desc;
+
+--update lessons join modules on lessons.module_id = modules.id join courses on modules.course_id=courses.id  
+--SET lessons.order =  lessons.order - 2  where courses.id=4 and lessons.order=6 order By lessons.order desc;
