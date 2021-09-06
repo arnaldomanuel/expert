@@ -7,7 +7,7 @@
 
 
     <iframe id="player" type="text/html" style="width: 100%;" height="500px"
-                            src="{{$lesson->video_link}}?enablejsapi=1&origin=http://example.com"
+                            src="{{$lesson->video_link}}?enablejsapi=1&origin=http://expert.co.mz"
                             frameborder="0"></iframe>
 
     <embed src="{{url($lesson->pdf_link)}}" style="width: 100%;"

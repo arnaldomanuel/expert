@@ -11,6 +11,8 @@ class Course extends Model
     use HasFactory;
     use SoftDeletes;
 
+    protected $with=["user"];
+
     protected $filable = [
         'name', 'description', 'thumbnail', 'user_id'
     ];

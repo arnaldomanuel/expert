@@ -104,7 +104,7 @@ class CourseController extends Controller
         $courseService = new CourseService();
         $result = $courseService->updateCourse($request, $id);
 
-    
+
         if ($result!="OK") {
            return $result;
         }
@@ -132,17 +132,17 @@ class CourseController extends Controller
         $course->objectives()->delete();*/
         $course->delete($id);
         session()->flash('activity', 'Curso: ' . $course->name . ' apagado com sucesso');
-        
+
         return redirect('/admin/course');
     }
 
     public function members($id){
-        
+
         $course = Course::findOrFail($id);
         if (auth()->user()->cannot('update', $course)) {
             abort(403);
         }
-        
+
         $data = array(
             'courseGrants' => CourseGrant::join('courses', 'course_grants.course_id', '=', 'courses.id')
                                 ->join('users', 'users.id', '=', 'course_grants.user_id')
@@ -153,7 +153,7 @@ class CourseController extends Controller
                                     ['courses.id', $id],
                                 ])->paginate(40),
         );
-       
+
         return view('course-grant.members')->with($data);
     }
     public function updateObjective(Request $request){
