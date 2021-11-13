@@ -14,9 +14,9 @@ class CourseGrantService {
         return CourseGrant::join('courses', 'course_grants.course_id', '=', 'courses.id')
                                 ->select('courses.*', 'course_grants.authorize', 'course_grants.token')
                                 ->where([
-                                   
+
                                     ['course_grants.user_id', $id]
                                 ])->get();
-        
+
     }
 }

@@ -25,7 +25,7 @@ function calc() {
             'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
         }
     });
-    
+
     var formData = {
         user_id1 : user_id,
         module_id1 : module_id,
@@ -49,7 +49,6 @@ function calc() {
                 $('#sucess').hide()
                 $('#failure').show()
             }
-          
             var instance = M.Modal.getInstance(document.getElementById("modal1"));
             instance.open()
 
@@ -59,7 +58,7 @@ function calc() {
         error: function (error) {
             console.log(error);
             console.log("err");
-            
+
             if (error.status == 401) {
                 window.location.href = "/login"
             }
@@ -73,20 +72,20 @@ function calc() {
 document.addEventListener('DOMContentLoaded', function () {
     var elems1 = document.querySelectorAll('.modal');
     var instances = M.Modal.init(elems1, {
-      
+
         onCloseEnd: function(){
             console.log('close');
             window.location.href="/my-results/quizz"
         },
     });
     $('#slideTotal').html(slideTotal)
-  
+
     var elems = document.querySelectorAll('.carousel');
      instances = M.Carousel.init(elems, {
         noWrap:true,
         fullWidth: true,
         indicators: true,
-        
+
     });
 });
 

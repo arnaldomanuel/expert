@@ -4,14 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\CourseGrant;
 use App\Models\Lesson;
+use App\Models\User;
+use App\Traits\APITrait;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Gate;
 
 class StudentLessonsController extends Controller
 {
-    public function viewLesson($id)
+    use APITrait;
+    public function viewLesson(Request $request, $id)
     {
         $lesson = Lesson::findOrFail($id);
 
@@ -33,7 +37,7 @@ class StudentLessonsController extends Controller
 
             $numberOfDays=explode(':', $select->hours)[0]/24 + 1;
 
-                
+
             if (!Str::contains(explode(':', $select->hours)[0], '-')) {
                 if ($lesson->order > $numberOfDays) {
                     abort(403, 'Aula ainda não está disponível.');
@@ -42,7 +46,7 @@ class StudentLessonsController extends Controller
                 abort(403, 'Aula ainda não está disponível. Aula disponível em: '.(explode(':', $select->hours)[0] *-1) .
                 'horas e '.(explode(':', $select->hours)[1]) . ' minutos');
             }
-           
+
         }
         $suggestions = Lesson::where([
             ['module_id', $lesson->module->id],
@@ -52,6 +56,15 @@ class StudentLessonsController extends Controller
             'lesson' => $lesson,
             'suggestions' => $suggestions,
         );
+
+
+        $user = auth()->user();
+        $user->last_viewed_course=$lesson->module->course_id;
+        $user->save();
+
+        if($this->isAPI($request)){
+            return response()->json($data);
+        }
         return view('students.lessons.show')->with($data);
     }
 }

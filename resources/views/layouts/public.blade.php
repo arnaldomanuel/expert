@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     @section('css')
-        
+
     @show
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
@@ -26,7 +26,7 @@
     html, body {
     max-width: 100% !important;
     width: 100%;
-   
+
 }
       </style>
 
@@ -45,17 +45,21 @@
    @Include('components.topnav')
     <!--Sidenva-->
    @Include('components.sidenav')
+
     <div class="false-container">
-           
+
            @section('main')
 
            @show
-                
+
     </div>
 
     @section('js')
-        
+
     @show
+
+   <!-- Modal Structure -->
+
     <!--EndSidenav-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
@@ -72,7 +76,8 @@
         });
          elems = document.querySelectorAll('.materialboxed');
      instances = M.Materialbox.init(elems, {});
-         
+
+
     </script>
 </body>
 

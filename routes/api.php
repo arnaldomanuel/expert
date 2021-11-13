@@ -17,9 +17,20 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('/user1', function (Request $request) {
+    return auth()->user();
+});
 
+Route::post('/login',[\App\Http\Controllers\MobileController::class,'login']);
 Route::get('/courses',[\App\Http\Controllers\StudentCourseController::class,'viewCourses']);
 Route::get('/course/{slug}',[\App\Http\Controllers\StudentCourseController::class,'viewCourse']);
 Route::get('/module/{id}',[\App\Http\Controllers\StudentCourseController::class,'viewModule']);
 Route::get('get/course/{slug}',[\App\Http\Controllers\StudentCourseController::class,'getCourse']);
-
+Route::get('/get/viewQuizz/{id}', [\App\Http\Controllers\StudentQuizzController::class, 'viewQuizz']);
+Route::post('/quizz/result', [\App\Http\Controllers\StudentQuizzController::class, 'postResult']);
+Route::get('/aulas/{id}', [\App\Http\Controllers\StudentLessonsController::class, 'viewLesson' ]);
+Route::get('/my-courses', [\App\Http\Controllers\StudentCourseController::class, 'showStudentCourses']);
+Route::get('last-viewed-course', [\App\Http\Controllers\StudentCourseController::class, 'getLastViewedCourse']);
+Route::get('/my-results/quizz', [\App\Http\Controllers\StudentQuizzController::class, 'getResult']);
+Route::post('/pay/mpesa',[\App\Http\Controllers\PaymentController::class, 'mpesa']);
+Route::get('/course/get-access-status/{course_id}',[\App\Http\Controllers\PaymentController::class, 'getPaymentSucess']);

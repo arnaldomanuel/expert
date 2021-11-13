@@ -2,12 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="482fbcdb-ceed-4554-95e6-9a61314c4bfc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/expert.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/expert.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StudentCourseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudentCourseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Course.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Course.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sql.sql" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sql.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/lesson/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/lesson/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StudentLessonsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudentLessonsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StudentQuizzController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudentQuizzController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/CourseGrantService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/CourseGrantService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/cors.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/cors.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/fortify.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/fortify.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/sanctum.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/sanctum.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/quizz.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/quizz.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/sidenav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/sidenav.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/public.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/public.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,6 +158,7 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
       <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
       <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/vendor/karson/mpesa-php-sdk" />
     </include_path>
   </component>
   <component name="ProjectId" id="1wradR1eibGpFdFbvBXVZxtRtBu" />
@@ -184,7 +197,18 @@
       <workItem from="1630431783756" duration="2713000" />
       <workItem from="1630604603681" duration="5690000" />
       <workItem from="1630851316048" duration="2568000" />
-      <workItem from="1630951040749" duration="1617000" />
+      <workItem from="1630951040749" duration="2305000" />
+      <workItem from="1631552827427" duration="764000" />
+      <workItem from="1631638569907" duration="1961000" />
+      <workItem from="1632052261864" duration="2024000" />
+      <workItem from="1632762686033" duration="681000" />
+      <workItem from="1632848312245" duration="2542000" />
+      <workItem from="1633538962381" duration="6113000" />
+      <workItem from="1634462824354" duration="6301000" />
+      <workItem from="1634836271418" duration="8201000" />
+      <workItem from="1635878280888" duration="2191000" />
+      <workItem from="1636213349422" duration="3461000" />
+      <workItem from="1636483144407" duration="1107000" />
     </task>
     <servers />
   </component>

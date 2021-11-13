@@ -19,29 +19,36 @@ use App\Models\User;
 use Illuminate\Auth\Notifications\VerifyEmail;
 
 Route::get('send-mail', function () {
-   
+
     $details = [
         'title' => 'Mail from ItSolutionStuff.com',
         'body' => 'This is for testing email using smtp'
     ];
-   
+
     \Mail::to('arnaldo.nhaguilunguane@outlook.pt')->send(new \App\Mail\MyTestMail($details));
-   
+
     dd("Email is Sent.");
 });
 
 Route::get('send-mail1', function () {
-   
+
     $details = [
         'title' => 'Mail from ItSolutionStuff.com',
         'body' => 'This is for testing email using smtp'
     ];
-   
+
     User::first()->notify(new VerifyEmail());
-   
+
     dd("Email is Sent.");
 });
 
+Route::get('testes', function () {
+
+
+   Auth::login(User::find(16));
+
+    dd("" . auth()->user());
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -70,8 +77,6 @@ Route::get('/ad', function(){
 Route::get('/cursos', [StudentCourseController::class, 'viewCourses' ]);
 Route::get('/cursos/{slug}', [StudentCourseController::class, 'viewCourse' ]);
 Route::get('/modulos/{id}', [StudentCourseController::class, 'viewModule' ]);
-
-
 
 
 Route::get('/auth/sign-in', [GoogleController::class, 'social'])->name('oauth');
