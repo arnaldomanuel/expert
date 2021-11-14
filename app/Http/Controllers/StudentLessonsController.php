@@ -9,6 +9,7 @@ use App\Traits\APITrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Gate;
 
@@ -66,5 +67,12 @@ class StudentLessonsController extends Controller
             return response()->json($data);
         }
         return view('students.lessons.show')->with($data);
+    }
+    public function downloadFile($id){
+       $lesson = Lesson::find($id);
+       $replaced = Str::replaceLast('storage', 'public', $lesson->pdf_link);
+
+       return (new \Illuminate\Http\Response(Storage::get($replaced)))->header('Content-Type', 'application/pdf');
+
     }
 }
