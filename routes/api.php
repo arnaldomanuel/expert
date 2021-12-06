@@ -24,9 +24,7 @@ Route::get('/user1', function (Request $request) {
     return auth()->user();
 });
 Route::middleware(['auth:api'])->group(function () {
-    Route::get('/courses',[\App\Http\Controllers\StudentCourseController::class,'viewCourses']);
-Route::get('/course/{slug}',[\App\Http\Controllers\StudentCourseController::class,'viewCourse']);
-Route::get('/module/{id}',[\App\Http\Controllers\StudentCourseController::class,'viewModule']);
+    
 Route::get('get/course/{slug}',[\App\Http\Controllers\StudentCourseController::class,'getCourse']);
 Route::get('/get/viewQuizz/{id}', [\App\Http\Controllers\StudentQuizzController::class, 'viewQuizz']);
 Route::post('/quizz/result', [\App\Http\Controllers\StudentQuizzController::class, 'postResult']);
@@ -38,5 +36,8 @@ Route::get('/my-results/quizz', [\App\Http\Controllers\StudentQuizzController::c
 Route::post('/pay/mpesa',[\App\Http\Controllers\PaymentController::class, 'mpesa']);
 Route::get('/course/get-access-status/{course_id}',[\App\Http\Controllers\PaymentController::class, 'getPaymentSucess']);
 });
+Route::get('/courses',[\App\Http\Controllers\StudentCourseController::class,'viewCourses']);
+Route::get('/course/{slug}',[\App\Http\Controllers\StudentCourseController::class,'viewCourse']);
+Route::get('/module/{id}',[\App\Http\Controllers\StudentCourseController::class,'viewModule']);
 Route::post('/login',[\App\Http\Controllers\MobileController::class,'login']);
 
