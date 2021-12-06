@@ -23,7 +23,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/user1', function (Request $request) {
     return auth()->user();
 });
-Route::middleware(['auth', CheckAdmin::class])->group(function () {
+Route::middleware(['auth:api'])->group(function () {
     Route::get('/courses',[\App\Http\Controllers\StudentCourseController::class,'viewCourses']);
 Route::get('/course/{slug}',[\App\Http\Controllers\StudentCourseController::class,'viewCourse']);
 Route::get('/module/{id}',[\App\Http\Controllers\StudentCourseController::class,'viewModule']);
