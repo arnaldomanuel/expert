@@ -9,18 +9,18 @@ use Illuminate\Support\Facades\Auth;
 class MobileController extends Controller
 {
     public function login(Request $request){
-        $user = User::where('email', $request->email)->first();
-        Auth::login($user);
-        return response()->json(auth()->user());
-        $user = User::where('mobile_app_code', $request->code)->first();
+     
+        
+        $user = User::where('mobile_app_code', $request->password)
+            ->where('email', $request->email)
+            ->first();
 
         if($user){
             if($user->email==$request->email){
-                Auth::login($user);
-                return response()->json('OK');
+                return response()->json( $user );
             }
         } else {
-            return response('')->json(array('message'=>'Autenticação falhou'), 419);
+            return response()->json(array('message'=>'Autenticação falhou'), 419);
         }
     }
 }
