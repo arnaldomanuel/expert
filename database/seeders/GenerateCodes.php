@@ -17,7 +17,7 @@ class GenerateCodes extends Seeder
         $users = User::all();
 
         foreach ($users as $user) {
-            $user->mobile_app_code = mt_rand(100000000, 9999999999);
+            $user->mobile_app_code = mt_rand(1000000, 9999999);
             $user->save();
         }
     }
