@@ -14,7 +14,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $seeder = new \Database\Seeders\TokenSeeder();
+       // $seeder = new \Database\Seeders\TokenSeeder();
+        $seeder = new \Database\Seeders\GenerateCodes();
         $seeder->run();
     }
 }
