@@ -16,7 +16,7 @@ class PaymentController extends Controller
         $payment->user_id=auth()->user()->id;
         $payment->amount=$request->amount;
         $payment->course_id= $request->course_id;
-        $payment->phone_number=$request->phone_number;
+        $payment->phone_number='258'.$request->phone_number;
         $payment->status='PENDENTE';
         $payment->save();
 
@@ -25,7 +25,7 @@ class PaymentController extends Controller
             $payment->status="ERRO_VALIDACAO";
             $payment->response=$valid;
             $payment->save();
-            return response()->json($valid, 401);
+            return response()->json($valid, 423);
         }
 
         $mpesa = new \Karson\MpesaPhpSdk\Mpesa();
@@ -34,9 +34,10 @@ class PaymentController extends Controller
         $mpesa->setPublicKey(env('MPESA_PUBLIC_KEY'));
         $mpesa->setEnv('test');
 
-        $result = $mpesa->c2b('Expert'.$payment->id, '+258'.$request->phone_number,
-            $request->amount, 'Expert Curso Online', env('SERVICECODE'));
+        $result = $mpesa->c2b('Expert'.$payment->id, '258'.$request->phone_number,
+        $request->amount, 'ExpertCurso', env('SERVICECODE'));
 
+        
         if($result->response->output_ResponseCode!='INS-0'){
             $payment->status='ERRO';
             $payment->response=json_encode($result);
@@ -72,13 +73,14 @@ class PaymentController extends Controller
         if (strlen($request->phone_number)!=9){
             return "Número Vodacom deve ter 9 dígitos";
         }
-        if(substr($request->phone_number, 0, 2)!="84" ||substr($request->phone_number, 0, 2)!="85"){
+
+        if(substr($request->phone_number, 0, 2)!="84" && substr($request->phone_number, 0, 2)!="85"){
             return "Número vodacom deve iniciar por 84/85";
         }
         if($request->amount<=0){
             return "Erro ao gravar curso";
         }
-
+      
         return "0";
     }
 

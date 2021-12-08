@@ -31,7 +31,7 @@ class StudentCourseController extends Controller
         }
 
 
-        $random= Str::random(6);
+        $random=  mt_rand(1000000, 9999999);;
         if(auth()->user()){
             $user = auth()->user();
             if($user->mobile_app_code == null){
