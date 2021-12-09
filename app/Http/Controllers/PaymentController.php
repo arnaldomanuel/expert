@@ -42,6 +42,9 @@ class PaymentController extends Controller
             $payment->status='ERRO';
             $payment->response=json_encode($result);
             $payment->save();
+            if($result->response->output_ResponseCode=='INS-10'){
+                return response()->json('Transação anterior idêntica', 401);
+            }
             return response()->json('Pagamento falhou', 401);
         }
 

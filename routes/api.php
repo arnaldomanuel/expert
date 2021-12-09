@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CourseGrantController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -34,10 +35,11 @@ Route::get('/my-courses', [\App\Http\Controllers\StudentCourseController::class,
 Route::get('last-viewed-course', [\App\Http\Controllers\StudentCourseController::class, 'getLastViewedCourse']);
 Route::get('/my-results/quizz', [\App\Http\Controllers\StudentQuizzController::class, 'getResult']);
 Route::post('/pay/mpesa',[\App\Http\Controllers\PaymentController::class, 'mpesa']);
+Route::post('/request/course-grant',[CourseGrantController::class, 'requestAccessToken']);
 Route::get('/course/get-access-status/{course_id}',[\App\Http\Controllers\PaymentController::class, 'getPaymentSucess']);
-});
 Route::get('/courses',[\App\Http\Controllers\StudentCourseController::class,'viewCourses']);
 Route::get('/course/{slug}',[\App\Http\Controllers\StudentCourseController::class,'viewCourse']);
 Route::get('/module/{id}',[\App\Http\Controllers\StudentCourseController::class,'viewModule']);
+});
 Route::post('/login',[\App\Http\Controllers\MobileController::class,'login']);
 
