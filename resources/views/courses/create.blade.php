@@ -57,11 +57,20 @@
                         </div>
                     </div>
                     <div class="col-sm-12 col-lg-4 col-xlg-4">
-                         
-                <div class="form-group">
-                    <label for="price">Preço do Curso</label>
-                    <input required type="number" step=".01" value="{{old('price')}}"  class="form-control" name="price" id="price"  >
+                                
+                        <div class="form-group">
+                            <label for="price">Preço do Curso</label>
+                            <input required type="number" step=".01" value="{{old('price')}}"  class="form-control" name="price" id="price"  >
+                        </div>
+                    </div>
                 </div>
+                <div class="row">
+                    <div class="col-sm-12 col-lg-4 col-xlg-4">
+                                
+                        <div class="form-group">
+                            <label for="price">Whatsapp</label>
+                            <input required type="text"value="{{old('whatsapp_number')}}"  class="form-control" name="whatsapp_number" >
+                        </div>
                     </div>
                 </div>
                

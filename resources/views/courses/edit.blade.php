@@ -59,13 +59,24 @@
                     <label for="price">Preço do Curso</label>
                     <input required type="number" step=".01" value="{{$course->price}}"  class="form-control" name="price" id="price"  >
                 </div>
+                        
+                <div class="form-group">
+                    <label for="price">Whatsapp</label>
+                    <input required type="text"value="{{$course->whatsapp_number)}}"  class="form-control" name="whatsapp_number" >
+                </div>
+                   
                 <p>Actualizar o Thumbnail do curso. Se não quiser alterar, deixe como está</p>
                 <div class="custom-file">
                     <input type="file" class="custom-file-input" accept="image/x-png,image/gif,image/jpeg" 
                     name="thumbnail" id="thumbnail">
                     <label class="custom-file-label" for="thumbnail">Choose file</label>
                 </div>
-
+                <div class="form-group">
+                    <label for="descripion">Whatsapp</label>
+                    <textarea class="form-control"placeholder="Número do Whatsapp com o +258" name="whatsapp_number">
+                        {{old('whatsapp_number')}}
+                    </textarea>    
+                </div>
                 <div class="form-group">
                     <label for="descripion">Descrição da Curso</label>
                     <textarea class="form-control" id="body" placeholder="Enter the Description" name="description">

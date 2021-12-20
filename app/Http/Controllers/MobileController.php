@@ -11,16 +11,26 @@ class MobileController extends Controller
     public function login(Request $request){
      
         
-        $user = User::where('mobile_app_code', $request->password)
-            ->where('email', $request->email)
+        $user = User::where('email', $request->email)
             ->first();
 
         if($user){
-            if($user->email==$request->email){
-                return response()->json( $user );
-            }
+           
+            return response()->json( $user );
+            
         } else {
-            return response()->json(array('message'=>'Autenticação falhou'), 419);
+            $newUser = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'google_id'=> 100,
+                'password' => 'password',
+                'email_verified_at' => now(),
+            ]);
+           
+            $newUser->course_online = 'Password'; 
+            $newUser->save();
+
+            return response()->json( $newUser );
         }
     }
 }

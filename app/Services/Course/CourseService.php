@@ -47,6 +47,7 @@ class CourseService {
          $course->price = $request->price;
          $course->start_lesson= $request->start_lesson;
         $course->description = $request->description;
+        $course->whatsapp_number = $request->whatsapp_number;
         $course->ondemand = $request->ondemand;
         $course->slug = Str::slug($request->name);
         $course->user_id = auth()->user()->id;
@@ -125,6 +126,7 @@ class CourseService {
         }
         $course->name = $request->name;
         $course->price = $request->price;
+        $course->whatsapp_number = $request->whatsapp_number;
         $course->ondemand = $request->ondemand;
         $course->description = $request->description;
         $course->save(); 
