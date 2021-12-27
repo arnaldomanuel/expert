@@ -55,6 +55,7 @@ class StudentLessonsController extends Controller
         ])->orderBy('order', 'asc')->get();
         $data = array(
             'lesson' => $lesson,
+            'course'=> $lesson->module->course,
             'suggestions' => $suggestions,
         );
 
