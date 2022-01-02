@@ -78,6 +78,12 @@
     </div>
 
 </div>
+<div class="fixed-action-btn">
+    <a href="https://wa.me/{{$lesson->module->course->whatsapp_number}}" class="btn-floating btn-large green accent-2">
+      <i class="large material-icons">whatsapp</i>
+    </a>
+    
+  </div>
 <style>
     body {
         background-color: #edeaf1;

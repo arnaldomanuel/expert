@@ -159,7 +159,13 @@
   
 </div>
 
-
+<div class="fixed-action-btn">
+    <a href="https://wa.me/{{$course->whatsapp_number}}" class="btn-floating btn-large green accent-2">
+      <i class="large material-icons">whatsapp</i>
+    </a>
+    
+  </div>
+        
 <!-- Modal Structure -->
 <div id="modal1" class="modal">
   <div class="modal-content">
@@ -206,6 +212,7 @@
 </style>
 
 @section('js')
+
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <script src="/js/requesttoken.js"></script>
 @endsection
