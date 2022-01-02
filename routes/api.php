@@ -30,6 +30,7 @@ Route::get('get/course/{slug}',[\App\Http\Controllers\StudentCourseController::c
 Route::get('/get/viewQuizz/{id}', [\App\Http\Controllers\StudentQuizzController::class, 'viewQuizz']);
 Route::post('/quizz/result', [\App\Http\Controllers\StudentQuizzController::class, 'postResult']);
 Route::get('/aulas/{id}', [\App\Http\Controllers\StudentLessonsController::class, 'viewLesson' ]);
+Route::get('/app/start', [\App\Http\Controllers\BannerController::class, 'startApp' ]);
 Route::get('/downloadPDF/{id}',[\App\Http\Controllers\StudentLessonsController::class,'downloadFile']);
 Route::get('/my-courses', [\App\Http\Controllers\StudentCourseController::class, 'showStudentCourses']);
 Route::get('last-viewed-course', [\App\Http\Controllers\StudentCourseController::class, 'getLastViewedCourse']);

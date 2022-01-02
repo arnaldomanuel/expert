@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Models\CourseGrant;
 use App\Models\Objective;
+use App\Models\User;
 use App\Services\Course\CourseService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use PhpParser\Node\Expr\Cast\Object_;
@@ -20,6 +22,7 @@ class CourseController extends Controller
      */
     public function index()
     {
+        
         $data = array(
             'courses' => Course::where('user_id', auth()->user()->id)->paginate(20),
         );

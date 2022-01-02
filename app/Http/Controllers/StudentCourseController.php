@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BannerApp;
 use App\Models\Course;
 use App\Models\CourseGrant;
 use App\Models\Objective;
@@ -51,9 +52,9 @@ class StudentCourseController extends Controller
     }
     public function getLastViewedCourse(){
 
-
         $data = array(
             'lastViewedCourse' => Course::find(auth()->user()->last_viewed_course),
+            'banners' => BannerApp::all(),
         );
 
         return  response()->json($data);

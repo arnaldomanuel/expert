@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CourseGrantController;
 use App\Http\Controllers\GoogleController;
@@ -17,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\CheckAdmin;
 use App\Models\User;
 use Illuminate\Auth\Notifications\VerifyEmail;
+
 
 Route::get('send-mail', function () {
 
@@ -119,5 +121,8 @@ Route::middleware(['auth', CheckAdmin::class])->group(function () {
     Route::resource('/admin/course', CourseController::class);
     Route::resource('/admin/quizz', QuizzController::class);
     Route::resource('/admin/school-class', SchoolClassController::class);
+    Route::resource('/admin/banner', BannerController::class);
 
 });
+
+Route::resource('/admin/banner', BannerController::class);
