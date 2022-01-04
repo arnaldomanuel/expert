@@ -20,7 +20,7 @@ class MobileController extends Controller
             
         } else {
             $newUser = User::create([
-                'name' => $request->name,
+                'name' => $request->email,
                 'email' => $request->email,
                 'google_id'=> 100,
                 'password' => 'password',
