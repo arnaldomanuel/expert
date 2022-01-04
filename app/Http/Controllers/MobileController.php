@@ -28,6 +28,7 @@ class MobileController extends Controller
                 'email_verified_at' => now(),
             ]);
            
+            $newUser->api_token = Str::random(60);
             $newUser->course_online = 'Password'; 
             $newUser->save();
 
