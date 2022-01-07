@@ -47,11 +47,17 @@ public  $messages = [
             $deletePath = Str::replaceFirst('storage', 'public', $lesson->pdf_link);
             Storage::disk('local')->delete($deletePath);
             $lesson->pdf_link = $this->saveLessonPDF($file);
-            
+        }
+        if($request->hasfile('audio')){
+            $file = $request->file('audio');
+            $deletePath = Str::replaceFirst('storage', 'public', $lesson->audio_path);
+            Storage::disk('local')->delete($deletePath);
+            $lesson->audio_path = $this->saveLessonAudio($file);
         }
         $lesson->name = $request->name;
         $lesson->module_id = $request->module_id;
         $lesson->video_link = $request->video_link;
+        $lesson->audio_transcript = $request->audio_transcript;
         $lesson->order = $request->order;
         $lesson->description = $request->description;
         $lesson->save();
@@ -66,6 +72,12 @@ public  $messages = [
         $path = 'public/pdf/' . $filename;
         Storage::disk('local')->put($path, file_get_contents($file));
         return 'storage/pdf/' . $filename;   
+    }
+    public function saveLessonAudio($file){
+        $filename = Str::random(4) . time() . '.' . $file->getClientOriginalExtension();
+        $path = 'public/adio/' . $filename;
+        Storage::disk('local')->put($path, file_get_contents($file));
+        return 'storage/adio/' . $filename;   
     }
     
 

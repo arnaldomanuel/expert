@@ -76,6 +76,17 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="audio">Áudio (Somente se quiser alterar o áudio) </label>
+                    <input type="file" name="audio" id="audio" accept=".mp3">
+                </div>
+
+                
+                <div class="form-group">
+                    <label for="audio_transcript">Transcrito do áudio</label>
+                    <input type="text"  value="{{$lesson->audio_transcript}}" class="form-control" name="audio_transcript" id="audio_transcript" aria-describedby="audio_transcript">
+                </div>
+
+                <div class="form-group">
                     <label for="descripion">Descrição da categoria</label>
                     <textarea class="form-control" id="body" placeholder="Enter the Description" name="description">
                         {{$lesson->description}}

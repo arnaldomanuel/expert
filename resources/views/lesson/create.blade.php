@@ -73,6 +73,16 @@
                     <label for="video_link">Link do Vídeo</label>
                     <input type="text" maxlength="255" value="{{old('video_link')}}" required class="form-control" name="video_link" id="video_link" aria-describedby="emailHelp">
                 </div>
+                <div class="form-group">
+                    <label for="audio">Áudio </label>
+                    <input type="file" name="audio" id="audio" accept=".mp3">
+                </div>
+
+                
+                <div class="form-group">
+                    <label for="audio_transcript">Transcrito do áudio</label>
+                    <input type="text" class="form-control" name="audio_transcript" id="audio_transcript" aria-describedby="audio_transcript">
+                </div>
 
                 <div class="form-group">
                     <label for="descripion">Descrição da aula</label>

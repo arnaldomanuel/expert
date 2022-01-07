@@ -62,12 +62,15 @@ class LessonController extends Controller
             'max' => 'Este campo excede :max caractéres',
 
             'file' => 'Falhou o upload do PDF',
+            'audio' => 'O áudio deve ser um mp3 com menos de 1,5MB',
+            'audio.max'=> 'O áudio deve ser um mp3 com menos de 3MBMB',
             'pdf.max' => 'O PDF não pode ter mais de 4MB',
             'pdf.mimetypes' => 'O documento deve ter a extensão pdf',
             'gte' => 'O campo :attribute deve ser maior ou igual a :value',
         ];
         $rules = [
             'pdf' => 'required|file|mimetypes:application/pdf|max:4000',
+            'audio' => 'required|file|mimetypes:audio/mpeg|max:3000',
             'name' => 'required|max:255',
             'video_link' => 'required|url|max:255',
             'module_id' => 'required',
@@ -107,8 +110,16 @@ class LessonController extends Controller
             Storage::disk('local')->put($path, file_get_contents($file));
             $lesson->pdf_link = 'storage/pdf/' . $filename;
         }
+        if ($request->hasfile('audio')) {
+            $file = $request->file('audio');
+            $filename = Str::random(4) . time() . '.' . $file->getClientOriginalExtension();
+            $path = 'public/audio/' . $filename;
+            Storage::disk('local')->put($path, file_get_contents($file));
+            $lesson->audio_path = 'storage/audio/' . $filename;
+        }
         $lesson->name = $request->name;
         $lesson->order = $request->order;
+        $lesson->audio_transcript = $request->audio_transcript;
         $lesson->module_id = $request->module_id;
         $lesson->video_link = Str::replaceFirst('https://www.youtube.com/watch?v=', 'https://www.youtube.com/embed/', $request->video_link);
         $lesson->description = $request->description;
