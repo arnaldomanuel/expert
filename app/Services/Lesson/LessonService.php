@@ -43,16 +43,23 @@ public  $messages = [
         }
         
         if($request->hasfile('pdf')){
+
             $file = $request->file('pdf');
             $deletePath = Str::replaceFirst('storage', 'public', $lesson->pdf_link);
             Storage::disk('local')->delete($deletePath);
             $lesson->pdf_link = $this->saveLessonPDF($file);
         }
         if($request->hasfile('audio')){
+            $lesson->has_video=0;
             $file = $request->file('audio');
             $deletePath = Str::replaceFirst('storage', 'public', $lesson->audio_path);
             Storage::disk('local')->delete($deletePath);
             $lesson->audio_path = $this->saveLessonAudio($file);
+        } 
+        if( $lesson->video_link){
+            $lesson->has_video=1;
+        } else {
+            $lesson->has_video=0;
         }
         $lesson->name = $request->name;
         $lesson->module_id = $request->module_id;

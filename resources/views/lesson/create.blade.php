@@ -71,7 +71,7 @@
                 </div>
                 <div class="form-group">
                     <label for="video_link">Link do Vídeo</label>
-                    <input type="text" maxlength="255" value="{{old('video_link')}}" required class="form-control" name="video_link" id="video_link" aria-describedby="emailHelp">
+                    <input type="text" maxlength="255" value="{{old('video_link')}}" class="form-control" name="video_link" id="video_link" aria-describedby="emailHelp">
                 </div>
                 <div class="form-group">
                     <label for="audio">Áudio </label>

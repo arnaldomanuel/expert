@@ -111,6 +111,7 @@ class LessonController extends Controller
             $lesson->pdf_link = 'storage/pdf/' . $filename;
         }
         if ($request->hasfile('audio')) {
+            $lesson->has_video=0;
             $file = $request->file('audio');
             $filename = Str::random(4) . time() . '.' . $file->getClientOriginalExtension();
             $path = 'public/audio/' . $filename;

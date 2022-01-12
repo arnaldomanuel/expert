@@ -72,7 +72,7 @@
 
                 <div class="form-group">
                     <label for="video_link">Link do Vídeo</label>
-                    <input type="text" maxlength="255" value="{{$lesson->video_link}}" required class="form-control" name="video_link" id="video_link" aria-describedby="emailHelp">
+                    <input type="text" maxlength="255" value="{{$lesson->video_link}}"  class="form-control" name="video_link" id="video_link" aria-describedby="emailHelp">
                 </div>
 
                 <div class="form-group">
@@ -80,7 +80,6 @@
                     <input type="file" name="audio" id="audio" accept=".mp3">
                 </div>
 
-                
                 <div class="form-group">
                     <label for="audio_transcript">Transcrito do áudio</label>
                     <input type="text"  value="{{$lesson->audio_transcript}}" class="form-control" name="audio_transcript" id="audio_transcript" aria-describedby="audio_transcript">
@@ -92,6 +91,7 @@
                         {{$lesson->description}}
                     </textarea>
                 </div>
+                
                 <button type="submit" class="btn btn-primary">Actualizar Aula</button>
             </form>
         </div>
@@ -102,8 +102,8 @@
     ClassicEditor
         .create(document.querySelector('#body'))
         .catch(error => {
-            console.error(error);
-        });
+                console.error(error)
+            })
 </script>
 
 @endsection
