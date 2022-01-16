@@ -82,9 +82,9 @@ public  $messages = [
     }
     public function saveLessonAudio($file){
         $filename = Str::random(4) . time() . '.' . $file->getClientOriginalExtension();
-        $path = 'public/adio/' . $filename;
+        $path = 'public/audio/' . $filename;
         Storage::disk('local')->put($path, file_get_contents($file));
-        return 'storage/adio/' . $filename;   
+        return 'storage/audio/' . $filename;   
     }
     
 
