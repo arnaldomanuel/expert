@@ -77,6 +77,7 @@ Route::get('/ad', function(){
  return substr('arnaldo',0, 1) ;
 });
 Route::get('/cursos', [StudentCourseController::class, 'viewCourses' ]);
+Route::view('/termos-e-condicoes', 'terms');
 Route::get('/cursos/{slug}', [StudentCourseController::class, 'viewCourse' ]);
 Route::get('/modulos/{id}', [StudentCourseController::class, 'viewModule' ]);
 
