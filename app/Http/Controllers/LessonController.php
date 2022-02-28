@@ -70,7 +70,7 @@ class LessonController extends Controller
         ];
         $rules = [
             'pdf' => 'required|file|mimetypes:application/pdf|max:4000',
-            'audio' => 'required|file|mimetypes:audio/mpeg|max:3000',
+            'audio' => 'file|mimetypes:audio/mpeg|max:3000',
             'name' => 'required|max:255',
             'video_link' => 'required|url|max:255',
             'module_id' => 'required',
