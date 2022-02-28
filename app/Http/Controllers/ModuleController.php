@@ -92,6 +92,7 @@ class ModuleController extends Controller
         $module->name = $request->name;
         $module->order = $request->order;
         $module->description = $request->description;
+
         $module->save();
         $request->session()->flash('activity', 'Módulo:  ' . $module->name . ' criado');
         return redirect('/admin/module');

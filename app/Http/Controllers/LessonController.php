@@ -134,6 +134,10 @@ class LessonController extends Controller
                     ->withErrors($validator)
                     ->withInput();
             }
+            $validator->errors()->add('error.order_id', 'Alguma coisa aconteceu errado.'. $ex);
+                return redirect()->back()
+                    ->withErrors($validator)
+                    ->withInput();
         }
         $request->session()->flash('activity', 'Aula:  ' . $lesson->name . ' criada');
         return redirect('/admin/module/' . $lesson->module_id);
