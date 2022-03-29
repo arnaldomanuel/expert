@@ -35,4 +35,13 @@ class MobileController extends Controller
             return response()->json( $newUser );
         }
     }
+
+    public function writeEmail($email){
+        $fp = fopen('data.txt', 'a');//opens file in append mode  
+        fwrite($fp, ',');  
+        fwrite($fp, $email);  
+        fclose($fp); 
+
+        return response()->json(  $email );
+    }
 }

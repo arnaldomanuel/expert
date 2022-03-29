@@ -9,8 +9,6 @@
             background-size:cover;" class="col s12 m12 l12 xl12">
         <div style=" margin-top: 60px; margin-left:auto; margin-right:auto; width:fit-content ">
             <img class="materialboxed course-thumbnail" style=" height: 230px; width: 230px !important;" src="{{url($course->thumbnail)}}" alt="">
-           
-           
         </div>
 
         <h1 style="width:100%; padding-top: 20px;" class="center">{{$course->name}}</h1>

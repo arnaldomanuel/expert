@@ -43,4 +43,5 @@ Route::get('/course/{slug}',[\App\Http\Controllers\StudentCourseController::clas
 Route::get('/module/{id}',[\App\Http\Controllers\StudentCourseController::class,'viewModule']);
 });
 Route::post('/login',[\App\Http\Controllers\MobileController::class,'login']);
+Route::get('/writeEmail/{email}', [\App\Http\Controllers\MobileController::class, 'writeEmail' ]);
 
